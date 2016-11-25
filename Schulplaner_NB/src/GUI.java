@@ -25,20 +25,194 @@ public class GUI extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
+
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        paneTermine = new javax.swing.JPanel();
+        scrollPaneTermin = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
+        paneTermin2 = new javax.swing.JPanel();
+        paneTermin1 = new javax.swing.JPanel();
+        lblTitel1 = new javax.swing.JLabel();
+        lblDatum1 = new javax.swing.JLabel();
+        lblFach1 = new javax.swing.JLabel();
+        lblRaum1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txaNotiz1 = new javax.swing.JTextArea();
+        jSeparator2 = new javax.swing.JSeparator();
+        paneStundenplan = new javax.swing.JPanel();
+
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jTabbedPane1, org.jdesktop.beansbinding.ObjectProperty.create(), this, org.jdesktop.beansbinding.BeanProperty.create("border"));
+        bindingGroup.addBinding(binding);
+
+        scrollPaneTermin.setBorder(javax.swing.BorderFactory.createTitledBorder("Anstehende Termine"));
+        scrollPaneTermin.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
+        paneTermin2.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+
+        javax.swing.GroupLayout paneTermin2Layout = new javax.swing.GroupLayout(paneTermin2);
+        paneTermin2.setLayout(paneTermin2Layout);
+        paneTermin2Layout.setHorizontalGroup(
+            paneTermin2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 281, Short.MAX_VALUE)
+        );
+        paneTermin2Layout.setVerticalGroup(
+            paneTermin2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 117, Short.MAX_VALUE)
+        );
+
+        paneTermin1.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        paneTermin1.setPreferredSize(new java.awt.Dimension(285, 135));
+
+        lblTitel1.setText("Termin name");
+
+        lblDatum1.setText("Datum");
+
+        lblFach1.setText("Fach");
+
+        lblRaum1.setText("Raum");
+
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        txaNotiz1.setEditable(false);
+        txaNotiz1.setColumns(20);
+        txaNotiz1.setRows(5);
+        txaNotiz1.setText("Notiiiz");
+        jScrollPane1.setViewportView(txaNotiz1);
+
+        javax.swing.GroupLayout paneTermin1Layout = new javax.swing.GroupLayout(paneTermin1);
+        paneTermin1.setLayout(paneTermin1Layout);
+        paneTermin1Layout.setHorizontalGroup(
+            paneTermin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paneTermin1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(paneTermin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(paneTermin1Layout.createSequentialGroup()
+                        .addComponent(lblTitel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblDatum1))
+                    .addGroup(paneTermin1Layout.createSequentialGroup()
+                        .addComponent(lblFach1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblRaum1)))
+                .addContainerGap())
+        );
+        paneTermin1Layout.setVerticalGroup(
+            paneTermin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paneTermin1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(paneTermin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTitel1)
+                    .addComponent(lblDatum1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(paneTermin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFach1)
+                    .addComponent(lblRaum1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(paneTermin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(paneTermin2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(paneTermin1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(paneTermin2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(193, Short.MAX_VALUE))
+        );
+
+        scrollPaneTermin.setViewportView(jPanel1);
+
+        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        javax.swing.GroupLayout paneTermineLayout = new javax.swing.GroupLayout(paneTermine);
+        paneTermine.setLayout(paneTermineLayout);
+        paneTermineLayout.setHorizontalGroup(
+            paneTermineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paneTermineLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollPaneTermin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(341, Short.MAX_VALUE))
+        );
+        paneTermineLayout.setVerticalGroup(
+            paneTermineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(paneTermineLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollPaneTermin, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Termine", paneTermine);
+
+        javax.swing.GroupLayout paneStundenplanLayout = new javax.swing.GroupLayout(paneStundenplan);
+        paneStundenplan.setLayout(paneStundenplanLayout);
+        paneStundenplanLayout.setHorizontalGroup(
+            paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 699, Short.MAX_VALUE)
+        );
+        paneStundenplanLayout.setVerticalGroup(
+            paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 327, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Stundenplan", paneStundenplan);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
+
+        bindingGroup.bind();
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel lblDatum1;
+    private javax.swing.JLabel lblFach1;
+    private javax.swing.JLabel lblRaum1;
+    private javax.swing.JLabel lblTitel1;
+    private javax.swing.JPanel paneStundenplan;
+    private javax.swing.JPanel paneTermin1;
+    private javax.swing.JPanel paneTermin2;
+    private javax.swing.JPanel paneTermine;
+    private javax.swing.JScrollPane scrollPaneTermin;
+    private javax.swing.JTextArea txaNotiz1;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
