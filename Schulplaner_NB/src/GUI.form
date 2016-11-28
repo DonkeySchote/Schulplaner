@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="btngrpJahrgang">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="btngrpHalbjahr">
+    </Component>
+  </NonVisualComponents>
   <BindingProperties>
     <BindingProperty name="border" source="jTabbedPane1" target="Form" targetPath="border" updateStrategy="0" immediately="false"/>
   </BindingProperties>
@@ -48,7 +54,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="linkerPane" min="-2" pref="350" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="mitteSeparator" min="-2" pref="2" max="-2" attributes="0"/>
+                      <Component id="mitteTerminSeparator" min="-2" pref="2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -102,7 +108,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="mitteSeparator" max="32767" attributes="0"/>
+                  <Component id="mitteTerminSeparator" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="linkerPane" min="-2" pref="476" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -155,7 +161,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JSeparator" name="mitteSeparator">
+            <Component class="javax.swing.JSeparator" name="mitteTerminSeparator">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -695,7 +701,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jScrollPane1" min="-2" pref="265" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="211" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="233" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -761,6 +767,885 @@
                 </Component>
               </SubComponents>
             </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="paneFach">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="F&#xe4;cher">
+                <Property name="tabTitle" type="java.lang.String" value="F&#xe4;cher"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="linkerFachPane" min="-2" pref="350" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="mitteFachSeparator" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="lblFachSet" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblLehrerSet" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="lblZeugnisSet" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblJahrgangstufe" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblHalbjahrSet" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txfLehrer" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Component id="txfZeugnisSet" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Component id="txfFach" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="rdbtnJ1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="rdbtnHalbjahr1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="rdbtnHalbjahr2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="rdbtnJ2" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Component id="btnSpeichern" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="66" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="linkerFachPane" alignment="0" pref="498" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblFachSet" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txfFach" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblLehrerSet" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txfLehrer" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblZeugnisSet" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txfZeugnisSet" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblJahrgangstufe" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rdbtnJ1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rdbtnJ2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="rdbtnHalbjahr1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rdbtnHalbjahr2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblHalbjahrSet" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnSpeichern" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="mitteFachSeparator" alignment="0" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JSeparator" name="mitteFachSeparator">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+                <Property name="orientation" type="int" value="1"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JTabbedPane" name="linkerFachPane">
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+              <SubComponents>
+                <Container class="javax.swing.JScrollPane" name="scrollPaneJ1_1">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                    <Property name="verticalScrollBarPolicy" type="int" value="22"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="J1.1">
+                        <Property name="tabTitle" type="java.lang.String" value="J1.1"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Container class="javax.swing.JPanel" name="panelJ1_1">
+                      <Properties>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                            <BevelBorder/>
+                          </Border>
+                        </Property>
+                      </Properties>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="j1_1Separator1" alignment="0" pref="334" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="paneFachJ1_1_1" pref="324" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="paneFachJ1_1_1" min="-2" pref="107" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="j1_1Separator1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="396" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JSeparator" name="j1_1Separator1">
+                          <Properties>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="0" green="0" red="0" type="rgb"/>
+                            </Property>
+                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                              <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
+                                <CompoundBorder/>
+                              </Border>
+                            </Property>
+                          </Properties>
+                        </Component>
+                        <Container class="javax.swing.JPanel" name="paneFachJ1_1_1">
+                          <Properties>
+                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                                <EtchetBorder bevelType="0"/>
+                              </Border>
+                            </Property>
+                            <Property name="toolTipText" type="java.lang.String" value="Klicken um zu bearbeiten"/>
+                            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                              <Dimension value="[285, 135]"/>
+                            </Property>
+                          </Properties>
+
+                          <Layout>
+                            <DimensionLayout dim="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="lblJ1_1Fach1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="lblJ1_1Lehrer1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblJ1_1Wann1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="lblJ1_1NotenKA1" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="32767" attributes="0"/>
+                                                          <Component id="txfKlausurenJ1_1_1" min="-2" pref="50" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="lblJ1_1NoteZeugnis1" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                                          <Component id="txfZeugnisJ1_1_1" min="-2" pref="50" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                            <DimensionLayout dim="1">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblJ1_1Fach1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblJ1_1Lehrer1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lblJ1_1Wann1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblJ1_1NoteZeugnis1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txfZeugnisJ1_1_1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblJ1_1NotenKA1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txfKlausurenJ1_1_1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                          </Layout>
+                          <SubComponents>
+                            <Component class="javax.swing.JLabel" name="lblJ1_1Fach1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Fach"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="lblJ1_1NotenKA1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Klausuren Noten :"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="lblJ1_1Lehrer1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Lehrer"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="lblJ1_1Wann1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Unterrichtzeiten"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="lblJ1_1NoteZeugnis1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Zeugnis Note:"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JTextField" name="txfZeugnisJ1_1_1">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JTextField" name="txfKlausurenJ1_1_1">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                      </SubComponents>
+                    </Container>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JScrollPane" name="scrollPaneJ1_2">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                    <Property name="verticalScrollBarPolicy" type="int" value="22"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="J1.2">
+                        <Property name="tabTitle" type="java.lang.String" value="J1.2"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Container class="javax.swing.JPanel" name="panelJ1_2">
+                      <Properties>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                            <BevelBorder/>
+                          </Border>
+                        </Property>
+                      </Properties>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="j1_2Separator1" alignment="0" pref="334" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="paneFachJ1_2_1" pref="324" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="paneFachJ1_2_1" min="-2" pref="107" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="j1_2Separator1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="396" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JSeparator" name="j1_2Separator1">
+                          <Properties>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="0" green="0" red="0" type="rgb"/>
+                            </Property>
+                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                              <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
+                                <CompoundBorder/>
+                              </Border>
+                            </Property>
+                          </Properties>
+                        </Component>
+                        <Container class="javax.swing.JPanel" name="paneFachJ1_2_1">
+                          <Properties>
+                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                                <EtchetBorder bevelType="0"/>
+                              </Border>
+                            </Property>
+                            <Property name="toolTipText" type="java.lang.String" value="Klicken um zu bearbeiten"/>
+                            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                              <Dimension value="[285, 135]"/>
+                            </Property>
+                          </Properties>
+
+                          <Layout>
+                            <DimensionLayout dim="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblJ1_2Fach1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="lblJ1_2Lehrer1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblJ1_2Wann1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="lblJ1_2NotenKA1" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="32767" attributes="0"/>
+                                                          <Component id="txfKlausurenJ1_2_1" min="-2" pref="50" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="lblJ1_2NoteZeugnis1" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                                          <Component id="txfZeugnisJ1_2_1" min="-2" pref="50" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                            <DimensionLayout dim="1">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblJ1_2Fach1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblJ1_2Lehrer1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lblJ1_2Wann1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblJ1_2NoteZeugnis1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txfZeugnisJ1_2_1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblJ1_2NotenKA1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txfKlausurenJ1_2_1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                          </Layout>
+                          <SubComponents>
+                            <Component class="javax.swing.JLabel" name="lblJ1_2Fach1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Fach"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="lblJ1_2NotenKA1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Klausuren Noten :"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="lblJ1_2Lehrer1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Lehrer"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="lblJ1_2Wann1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Unterrichtzeiten"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="lblJ1_2NoteZeugnis1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Zeugnis Note:"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JTextField" name="txfZeugnisJ1_2_1">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JTextField" name="txfKlausurenJ1_2_1">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                      </SubComponents>
+                    </Container>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JScrollPane" name="scrollPaneJ2_1">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                    <Property name="verticalScrollBarPolicy" type="int" value="22"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="J2.1">
+                        <Property name="tabTitle" type="java.lang.String" value="J2.1"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Container class="javax.swing.JPanel" name="panelJ2_1">
+                      <Properties>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                            <BevelBorder/>
+                          </Border>
+                        </Property>
+                      </Properties>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="j2_1Separator1" alignment="0" pref="334" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="paneFachJ2_1_1" pref="324" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="paneFachJ2_1_1" min="-2" pref="107" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="j2_1Separator1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="396" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JSeparator" name="j2_1Separator1">
+                          <Properties>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="0" green="0" red="0" type="rgb"/>
+                            </Property>
+                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                              <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
+                                <CompoundBorder/>
+                              </Border>
+                            </Property>
+                          </Properties>
+                        </Component>
+                        <Container class="javax.swing.JPanel" name="paneFachJ2_1_1">
+                          <Properties>
+                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                                <EtchetBorder bevelType="0"/>
+                              </Border>
+                            </Property>
+                            <Property name="toolTipText" type="java.lang.String" value="Klicken um zu bearbeiten"/>
+                            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                              <Dimension value="[285, 135]"/>
+                            </Property>
+                          </Properties>
+
+                          <Layout>
+                            <DimensionLayout dim="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblJ2_1Fach1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="lblJ2_1Lehrer1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblJ2_1Wann1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="lblJ2_1NotenKA1" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="32767" attributes="0"/>
+                                                          <Component id="txfKlausurenJ2_1_1" min="-2" pref="50" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="lblJ2_1NoteZeugnis1" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                                          <Component id="txfZeugnisJ2_1_1" min="-2" pref="50" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                            <DimensionLayout dim="1">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblJ2_1Fach1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblJ2_1Lehrer1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lblJ2_1Wann1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblJ2_1NoteZeugnis1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txfZeugnisJ2_1_1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblJ2_1NotenKA1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txfKlausurenJ2_1_1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                          </Layout>
+                          <SubComponents>
+                            <Component class="javax.swing.JLabel" name="lblJ2_1Fach1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Fach"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="lblJ2_1NotenKA1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Klausuren Noten :"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="lblJ2_1Lehrer1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Lehrer"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="lblJ2_1Wann1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Unterrichtzeiten"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="lblJ2_1NoteZeugnis1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Zeugnis Note:"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JTextField" name="txfZeugnisJ2_1_1">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JTextField" name="txfKlausurenJ2_1_1">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                      </SubComponents>
+                    </Container>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JScrollPane" name="scrollPaneJ2_2">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                    <Property name="verticalScrollBarPolicy" type="int" value="22"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="J2.2">
+                        <Property name="tabTitle" type="java.lang.String" value="J2.2"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Container class="javax.swing.JPanel" name="panelJ2_2">
+                      <Properties>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                            <BevelBorder/>
+                          </Border>
+                        </Property>
+                      </Properties>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="j2_2Separator1" alignment="0" pref="334" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="paneFachJ2_2_1" pref="324" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="paneFachJ2_2_1" min="-2" pref="107" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="j2_2Separator1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="396" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JSeparator" name="j2_2Separator1">
+                          <Properties>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="0" green="0" red="0" type="rgb"/>
+                            </Property>
+                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                              <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
+                                <CompoundBorder/>
+                              </Border>
+                            </Property>
+                          </Properties>
+                        </Component>
+                        <Container class="javax.swing.JPanel" name="paneFachJ2_2_1">
+                          <Properties>
+                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                                <EtchetBorder bevelType="0"/>
+                              </Border>
+                            </Property>
+                            <Property name="toolTipText" type="java.lang.String" value="Klicken um zu bearbeiten"/>
+                            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                              <Dimension value="[285, 135]"/>
+                            </Property>
+                          </Properties>
+
+                          <Layout>
+                            <DimensionLayout dim="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblJ2_2Fach1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="lblJ2_2Lehrer1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblJ2_2Wann1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="lblJ2_2NotenKA1" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="32767" attributes="0"/>
+                                                          <Component id="txfKlausurenJ2_2_1" min="-2" pref="50" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="lblJ2_2NoteZeugnis1" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                                          <Component id="txfZeugnisJ2_2_1" min="-2" pref="50" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                            <DimensionLayout dim="1">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblJ2_2Fach1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblJ2_2Lehrer1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lblJ2_2Wann1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblJ2_2NoteZeugnis1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txfZeugnisJ2_2_1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblJ2_2NotenKA1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txfKlausurenJ2_2_1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                          </Layout>
+                          <SubComponents>
+                            <Component class="javax.swing.JLabel" name="lblJ2_2Fach1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Fach"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="lblJ2_2NotenKA1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Klausuren Noten :"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="lblJ2_2Lehrer1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Lehrer"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="lblJ2_2Wann1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Unterrichtzeiten"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="lblJ2_2NoteZeugnis1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Zeugnis Note:"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JTextField" name="txfZeugnisJ2_2_1">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JTextField" name="txfKlausurenJ2_2_1">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                      </SubComponents>
+                    </Container>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="lblFachSet">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Fach"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txfFach">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblLehrerSet">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Lehrer"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txfLehrer">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblZeugnisSet">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Zeugnis Note"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txfZeugnisSet">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblJahrgangstufe">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Jahrgangstufe"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="rdbtnJ1">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="btngrpJahrgang"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="J1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="rdbtnJ2">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="btngrpJahrgang"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="J2"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="rdbtnHalbjahr1">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="btngrpHalbjahr"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="erstes"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="rdbtnHalbjahr2">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="btngrpHalbjahr"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="zweites"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHalbjahrSet">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Halbjahr"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnSpeichern">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Speichern"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>
