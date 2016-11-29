@@ -1,0 +1,7 @@
+TODO:
+-GUI wird hauptsächlich Williams vorschlag, sein Branch wird wahrscheinlich übernommen
+-Notenübersicht wird von Nicole übernommen, Itemlist jedoch wieder reihe an Panels
+-Stundenplan mit Toggle für A-B Woche
+-Löschenbutton für Termin und Fächer Tab
+-Abiturnoten auch von Nicole
+-Wir versuchens mal mit Williams Panels
