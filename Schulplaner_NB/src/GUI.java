@@ -59,9 +59,8 @@ public class GUI extends javax.swing.JPanel {
         txaAllNotiz1 = new javax.swing.JTextArea();
         txfName = new javax.swing.JTextField();
         lblTerminName = new javax.swing.JLabel();
-        lblTitel = new javax.swing.JLabel();
+        lblTitelTermin = new javax.swing.JLabel();
         lblFach = new javax.swing.JLabel();
-        spinnerFach = new javax.swing.JSpinner();
         lblDatum = new javax.swing.JLabel();
         spinnerDatum = new javax.swing.JSpinner();
         lblRaum = new javax.swing.JLabel();
@@ -73,8 +72,10 @@ public class GUI extends javax.swing.JPanel {
         txfNote = new javax.swing.JTextField();
         lblAbi = new javax.swing.JLabel();
         cBoxAbi = new javax.swing.JCheckBox();
-        btnBearbeitet = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnBearbeitenTermin = new javax.swing.JButton();
+        btnHinzufuegenTermin = new javax.swing.JButton();
+        cbFach = new javax.swing.JComboBox();
+        btnLoeschenTermin = new javax.swing.JButton();
         paneStundenplan = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableStundenplan = new javax.swing.JTable();
@@ -137,7 +138,10 @@ public class GUI extends javax.swing.JPanel {
         rdbtnHalbjahr1 = new javax.swing.JRadioButton();
         rdbtnHalbjahr2 = new javax.swing.JRadioButton();
         lblHalbjahrSet = new javax.swing.JLabel();
-        btnSpeichern = new javax.swing.JButton();
+        btnBearbeitenFach = new javax.swing.JButton();
+        btnHinzufuegenFach = new javax.swing.JButton();
+        btnLoeschenFach = new javax.swing.JButton();
+        lblTitelFach = new javax.swing.JLabel();
 
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jTabbedPane1, org.jdesktop.beansbinding.ObjectProperty.create(), this, org.jdesktop.beansbinding.BeanProperty.create("border"));
         bindingGroup.addBinding(binding);
@@ -363,13 +367,11 @@ public class GUI extends javax.swing.JPanel {
 
         lblTerminName.setText("Termin Name");
 
-        lblTitel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblTitel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitel.setText("Termine hinzufügen und bearbeiten");
+        lblTitelTermin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblTitelTermin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitelTermin.setText("Termine hinzufügen und bearbeiten");
 
         lblFach.setText("Fach");
-
-        spinnerFach.setModel(new javax.swing.SpinnerListModel(new String[] {"Item 0", "Item 1", "Item 2", "Item 3"}));
 
         lblDatum.setText("Datum");
 
@@ -394,9 +396,13 @@ public class GUI extends javax.swing.JPanel {
 
         cBoxAbi.setText("Abitür Prüfung");
 
-        btnBearbeitet.setText("Bearbeitung Speichern");
+        btnBearbeitenTermin.setText("Bearbeitung Speichern");
 
-        jButton1.setText("Termin hinzufügen");
+        btnHinzufuegenTermin.setText("Termin hinzufügen");
+
+        cbFach.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        btnLoeschenTermin.setText("Termin Löschen");
 
         javax.swing.GroupLayout paneTermineLayout = new javax.swing.GroupLayout(paneTermine);
         paneTermine.setLayout(paneTermineLayout);
@@ -411,7 +417,7 @@ public class GUI extends javax.swing.JPanel {
                         .addGroup(paneTermineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(paneTermineLayout.createSequentialGroup()
                                 .addGap(67, 67, 67)
-                                .addComponent(lblTitel))
+                                .addComponent(lblTitelTermin))
                             .addGroup(paneTermineLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(paneTermineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -426,21 +432,22 @@ public class GUI extends javax.swing.JPanel {
                                 .addGroup(paneTermineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(notizScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
                                     .addGroup(paneTermineLayout.createSequentialGroup()
-                                        .addGroup(paneTermineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(paneTermineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(txfName, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                                                .addComponent(spinnerFach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(spinnerDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(txfRaum))
-                                            .addComponent(txfNote, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cBoxAbi))
+                                        .addGroup(paneTermineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txfName, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                                            .addComponent(txfRaum)
+                                            .addComponent(txfNote, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                                            .addComponent(cBoxAbi)
+                                            .addGroup(paneTermineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(cbFach, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(spinnerDatum, javax.swing.GroupLayout.Alignment.LEADING)))
                                         .addGap(0, 0, Short.MAX_VALUE)))))
                         .addContainerGap())
                     .addGroup(paneTermineLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(paneTermineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(btnBearbeitet))
+                            .addComponent(btnHinzufuegenTermin)
+                            .addComponent(btnBearbeitenTermin)
+                            .addComponent(btnLoeschenTermin))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         paneTermineLayout.setVerticalGroup(
@@ -448,10 +455,10 @@ public class GUI extends javax.swing.JPanel {
             .addComponent(mitteTerminSeparator)
             .addGroup(paneTermineLayout.createSequentialGroup()
                 .addComponent(linkerPane, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 22, Short.MAX_VALUE))
             .addGroup(paneTermineLayout.createSequentialGroup()
                 .addGap(2, 2, 2)
-                .addComponent(lblTitel)
+                .addComponent(lblTitelTermin)
                 .addGap(4, 4, 4)
                 .addGroup(paneTermineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTerminName)
@@ -459,7 +466,7 @@ public class GUI extends javax.swing.JPanel {
                 .addGap(11, 11, 11)
                 .addGroup(paneTermineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFach)
-                    .addComponent(spinnerFach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbFach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(paneTermineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDatum)
@@ -481,9 +488,11 @@ public class GUI extends javax.swing.JPanel {
                     .addComponent(lblAbi)
                     .addComponent(cBoxAbi))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnBearbeitet)
+                .addComponent(btnBearbeitenTermin)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btnHinzufuegenTermin)
+                .addGap(18, 18, 18)
+                .addComponent(btnLoeschenTermin)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -546,6 +555,7 @@ public class GUI extends javax.swing.JPanel {
         mitteFachSeparator.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         scrollPaneJ1_1.setBorder(null);
+        scrollPaneJ1_1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPaneJ1_1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         panelJ1_1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -621,10 +631,8 @@ public class GUI extends javax.swing.JPanel {
         panelJ1_1.setLayout(panelJ1_1Layout);
         panelJ1_1Layout.setHorizontalGroup(
             panelJ1_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(j1_1Separator1, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
-            .addGroup(panelJ1_1Layout.createSequentialGroup()
-                .addComponent(paneFachJ1_1_1, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(j1_1Separator1, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+            .addComponent(paneFachJ1_1_1, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
         );
         panelJ1_1Layout.setVerticalGroup(
             panelJ1_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -640,6 +648,7 @@ public class GUI extends javax.swing.JPanel {
         linkerFachPane.addTab("J1.1", scrollPaneJ1_1);
 
         scrollPaneJ1_2.setBorder(null);
+        scrollPaneJ1_2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPaneJ1_2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         panelJ1_2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -715,10 +724,8 @@ public class GUI extends javax.swing.JPanel {
         panelJ1_2.setLayout(panelJ1_2Layout);
         panelJ1_2Layout.setHorizontalGroup(
             panelJ1_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(j1_2Separator1, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
-            .addGroup(panelJ1_2Layout.createSequentialGroup()
-                .addComponent(paneFachJ1_2_1, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(j1_2Separator1, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+            .addComponent(paneFachJ1_2_1, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
         );
         panelJ1_2Layout.setVerticalGroup(
             panelJ1_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -734,6 +741,7 @@ public class GUI extends javax.swing.JPanel {
         linkerFachPane.addTab("J1.2", scrollPaneJ1_2);
 
         scrollPaneJ2_1.setBorder(null);
+        scrollPaneJ2_1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPaneJ2_1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         panelJ2_1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -809,10 +817,8 @@ public class GUI extends javax.swing.JPanel {
         panelJ2_1.setLayout(panelJ2_1Layout);
         panelJ2_1Layout.setHorizontalGroup(
             panelJ2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(j2_1Separator1, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
-            .addGroup(panelJ2_1Layout.createSequentialGroup()
-                .addComponent(paneFachJ2_1_1, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(j2_1Separator1, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+            .addComponent(paneFachJ2_1_1, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
         );
         panelJ2_1Layout.setVerticalGroup(
             panelJ2_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -828,6 +834,7 @@ public class GUI extends javax.swing.JPanel {
         linkerFachPane.addTab("J2.1", scrollPaneJ2_1);
 
         scrollPaneJ2_2.setBorder(null);
+        scrollPaneJ2_2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPaneJ2_2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         panelJ2_2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -903,10 +910,8 @@ public class GUI extends javax.swing.JPanel {
         panelJ2_2.setLayout(panelJ2_2Layout);
         panelJ2_2Layout.setHorizontalGroup(
             panelJ2_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(j2_2Separator1, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
-            .addGroup(panelJ2_2Layout.createSequentialGroup()
-                .addComponent(paneFachJ2_2_1, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(j2_2Separator1, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+            .addComponent(paneFachJ2_2_1, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
         );
         panelJ2_2Layout.setVerticalGroup(
             panelJ2_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -943,7 +948,20 @@ public class GUI extends javax.swing.JPanel {
 
         lblHalbjahrSet.setText("Halbjahr");
 
-        btnSpeichern.setText("Speichern");
+        btnBearbeitenFach.setText("Bearbeitung Speichern");
+
+        btnHinzufuegenFach.setText("Fach Hinzufügen");
+
+        btnLoeschenFach.setText("Fach Löschen");
+        btnLoeschenFach.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoeschenFachActionPerformed(evt);
+            }
+        });
+
+        lblTitelFach.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblTitelFach.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitelFach.setText("Fächer hinzufügen und bearbeiten");
 
         javax.swing.GroupLayout paneFachLayout = new javax.swing.GroupLayout(paneFach);
         paneFach.setLayout(paneFachLayout);
@@ -952,43 +970,51 @@ public class GUI extends javax.swing.JPanel {
             .addGroup(paneFachLayout.createSequentialGroup()
                 .addComponent(linkerFachPane, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mitteFachSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(mitteFachSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(paneFachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(paneFachLayout.createSequentialGroup()
-                        .addGroup(paneFachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnLoeschenFach)
+                    .addGroup(paneFachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lblTitelFach)
+                        .addGroup(paneFachLayout.createSequentialGroup()
                             .addGroup(paneFachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneFachLayout.createSequentialGroup()
-                                    .addComponent(lblFachSet)
-                                    .addGap(18, 18, 18))
+                                .addComponent(btnBearbeitenFach)
                                 .addGroup(paneFachLayout.createSequentialGroup()
-                                    .addComponent(lblLehrerSet)
-                                    .addGap(13, 13, 13)))
-                            .addComponent(lblZeugnisSet)
-                            .addComponent(lblJahrgangstufe)
-                            .addComponent(lblHalbjahrSet))
-                        .addGap(18, 18, 18)
-                        .addGroup(paneFachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txfLehrer, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txfZeugnisSet, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txfFach, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(paneFachLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(paneFachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rdbtnJ1)
-                                    .addComponent(rdbtnHalbjahr1))
-                                .addGap(51, 51, 51)
-                                .addGroup(paneFachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rdbtnHalbjahr2)
-                                    .addComponent(rdbtnJ2)))))
-                    .addComponent(btnSpeichern))
-                .addGap(0, 66, Short.MAX_VALUE))
+                                    .addGroup(paneFachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblLehrerSet)
+                                        .addComponent(lblZeugnisSet)
+                                        .addComponent(lblJahrgangstufe)
+                                        .addComponent(lblHalbjahrSet)
+                                        .addComponent(lblFachSet))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(paneFachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(paneFachLayout.createSequentialGroup()
+                                            .addGroup(paneFachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(txfFach, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txfZeugnisSet, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txfLehrer, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(88, 88, 88))
+                                        .addGroup(paneFachLayout.createSequentialGroup()
+                                            .addGroup(paneFachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(paneFachLayout.createSequentialGroup()
+                                                    .addComponent(rdbtnHalbjahr1)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneFachLayout.createSequentialGroup()
+                                                    .addComponent(rdbtnJ1)
+                                                    .addGap(60, 60, 60)))
+                                            .addGroup(paneFachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(rdbtnJ2)
+                                                .addComponent(rdbtnHalbjahr2)))))
+                                .addComponent(btnHinzufuegenFach))
+                            .addGap(24, 24, 24))))
+                .addGap(0, 61, Short.MAX_VALUE))
         );
         paneFachLayout.setVerticalGroup(
             paneFachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(linkerFachPane, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
             .addGroup(paneFachLayout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(lblTitelFach)
+                .addGap(8, 8, 8)
                 .addGroup(paneFachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFachSet)
                     .addComponent(txfFach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1008,10 +1034,14 @@ public class GUI extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(paneFachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rdbtnHalbjahr1)
-                    .addComponent(rdbtnHalbjahr2)
-                    .addComponent(lblHalbjahrSet))
+                    .addComponent(lblHalbjahrSet)
+                    .addComponent(rdbtnHalbjahr2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnBearbeitenFach)
                 .addGap(18, 18, 18)
-                .addComponent(btnSpeichern)
+                .addComponent(btnHinzufuegenFach)
+                .addGap(18, 18, 18)
+                .addComponent(btnLoeschenFach)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(mitteFachSeparator)
         );
@@ -1032,22 +1062,30 @@ public class GUI extends javax.swing.JPanel {
         bindingGroup.bind();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnLoeschenFachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoeschenFachActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLoeschenFachActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane allNotizScrollPane1;
     private javax.swing.JSeparator allSeparator1;
     private javax.swing.JScrollPane anstNotizScrollPane1;
     private javax.swing.JSeparator anstSeparator1;
-    private javax.swing.JButton btnBearbeitet;
-    private javax.swing.JButton btnSpeichern;
+    private javax.swing.JButton btnBearbeitenFach;
+    private javax.swing.JButton btnBearbeitenTermin;
+    private javax.swing.JButton btnHinzufuegenFach;
+    private javax.swing.JButton btnHinzufuegenTermin;
+    private javax.swing.JButton btnLoeschenFach;
+    private javax.swing.JButton btnLoeschenTermin;
     private javax.swing.ButtonGroup btngrpHalbjahr;
     private javax.swing.ButtonGroup btngrpJahrgang;
     private javax.swing.JCheckBox cBoxAbi;
+    private javax.swing.JComboBox cbFach;
     private javax.swing.JSeparator j1_1Separator1;
     private javax.swing.JSeparator j1_2Separator1;
     private javax.swing.JSeparator j2_1Separator1;
     private javax.swing.JSeparator j2_2Separator1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -1091,7 +1129,8 @@ public class GUI extends javax.swing.JPanel {
     private javax.swing.JLabel lblNotiz;
     private javax.swing.JLabel lblRaum;
     private javax.swing.JLabel lblTerminName;
-    private javax.swing.JLabel lblTitel;
+    private javax.swing.JLabel lblTitelFach;
+    private javax.swing.JLabel lblTitelTermin;
     private javax.swing.JLabel lblZeugnisSet;
     private javax.swing.JTabbedPane linkerFachPane;
     private javax.swing.JTabbedPane linkerPane;
@@ -1126,7 +1165,6 @@ public class GUI extends javax.swing.JPanel {
     private javax.swing.JScrollPane scrollPaneJ2_1;
     private javax.swing.JScrollPane scrollPaneJ2_2;
     private javax.swing.JSpinner spinnerDatum;
-    private javax.swing.JSpinner spinnerFach;
     private javax.swing.JTable tableStundenplan;
     private javax.swing.JTextArea txaAllNotiz1;
     private javax.swing.JTextArea txaAnstNotiz1;

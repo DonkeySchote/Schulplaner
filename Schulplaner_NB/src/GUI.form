@@ -60,7 +60,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                                      <Component id="lblTitel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblTitelTermin" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
@@ -77,15 +77,15 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="notizScrollPane" pref="261" max="32767" attributes="0"/>
                                           <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="txfName" pref="110" max="32767" attributes="0"/>
-                                                      <Component id="spinnerFach" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="spinnerDatum" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="txfRaum" alignment="0" max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="txfNote" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="txfName" pref="110" max="32767" attributes="0"/>
+                                                  <Component id="txfRaum" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="txfNote" alignment="0" pref="110" max="32767" attributes="0"/>
                                                   <Component id="cBoxAbi" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                      <Component id="cbFach" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="spinnerDatum" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
@@ -97,8 +97,9 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnBearbeitet" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnHinzufuegenTermin" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnBearbeitenTermin" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnLoeschenTermin" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -111,11 +112,11 @@
                   <Component id="mitteTerminSeparator" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="linkerPane" min="-2" pref="476" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="22" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                      <Component id="lblTitel" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTitelTermin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblTerminName" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -124,7 +125,7 @@
                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblFach" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="spinnerFach" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbFach" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -152,9 +153,11 @@
                           <Component id="cBoxAbi" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnBearbeitet" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnBearbeitenTermin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnHinzufuegenTermin" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnLoeschenTermin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -581,7 +584,7 @@
                 <Property name="text" type="java.lang.String" value="Termin Name"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblTitel">
+            <Component class="javax.swing.JLabel" name="lblTitelTermin">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
@@ -593,18 +596,6 @@
             <Component class="javax.swing.JLabel" name="lblFach">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Fach"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JSpinner" name="spinnerFach">
-              <Properties>
-                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                  <SpinnerModel type="list">
-                    <ListItem value="Item 0"/>
-                    <ListItem value="Item 1"/>
-                    <ListItem value="Item 2"/>
-                    <ListItem value="Item 3"/>
-                  </SpinnerModel>
-                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblDatum">
@@ -670,14 +661,31 @@
                 <Property name="text" type="java.lang.String" value="Abit&#xfc;r Pr&#xfc;fung"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnBearbeitet">
+            <Component class="javax.swing.JButton" name="btnBearbeitenTermin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Bearbeitung Speichern"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="btnHinzufuegenTermin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Termin hinzuf&#xfc;gen"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cbFach">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Item 1"/>
+                    <StringItem index="1" value="Item 2"/>
+                    <StringItem index="2" value="Item 3"/>
+                    <StringItem index="3" value="Item 4"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnLoeschenTermin">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Termin L&#xf6;schen"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -784,55 +792,67 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="linkerFachPane" min="-2" pref="350" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="mitteFachSeparator" min="-2" max="-2" attributes="0"/>
+                      <Component id="mitteFachSeparator" min="-2" pref="2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="lblFachSet" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnLoeschenFach" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Component id="lblTitelFach" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="btnBearbeitenFach" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblLehrerSet" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblZeugnisSet" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblJahrgangstufe" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblHalbjahrSet" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblFachSet" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="1" attributes="0">
+                                                      <Component id="txfFach" min="-2" pref="70" max="-2" attributes="0"/>
+                                                      <Component id="txfZeugnisSet" min="-2" pref="70" max="-2" attributes="0"/>
+                                                      <Component id="txfLehrer" alignment="1" min="-2" pref="70" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="rdbtnHalbjahr1" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="32767" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="rdbtnJ1" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="rdbtnJ2" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="rdbtnHalbjahr2" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lblLehrerSet" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="btnHinzufuegenFach" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="lblZeugnisSet" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblJahrgangstufe" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblHalbjahrSet" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txfLehrer" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <Component id="txfZeugnisSet" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <Component id="txfFach" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="rdbtnJ1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="rdbtnHalbjahr1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="rdbtnHalbjahr2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="rdbtnJ2" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="btnSpeichern" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="66" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="61" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="linkerFachPane" alignment="0" pref="498" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="lblTitelFach" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblFachSet" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txfFach" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -856,11 +876,15 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="rdbtnHalbjahr1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="rdbtnHalbjahr2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblHalbjahrSet" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rdbtnHalbjahr2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnBearbeitenFach" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnSpeichern" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnHinzufuegenFach" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnLoeschenFach" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Component id="mitteFachSeparator" alignment="0" max="32767" attributes="0"/>
@@ -885,6 +909,7 @@
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
+                    <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
                     <Property name="verticalScrollBarPolicy" type="int" value="22"/>
                   </Properties>
                   <Constraints>
@@ -909,11 +934,8 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="j1_1Separator1" alignment="0" pref="334" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="paneFachJ1_1_1" pref="324" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="j1_1Separator1" alignment="0" pref="322" max="32767" attributes="0"/>
+                              <Component id="paneFachJ1_1_1" alignment="0" pref="322" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
@@ -1059,6 +1081,7 @@
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
+                    <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
                     <Property name="verticalScrollBarPolicy" type="int" value="22"/>
                   </Properties>
                   <Constraints>
@@ -1083,11 +1106,8 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="j1_2Separator1" alignment="0" pref="334" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="paneFachJ1_2_1" pref="324" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="j1_2Separator1" alignment="0" pref="322" max="32767" attributes="0"/>
+                              <Component id="paneFachJ1_2_1" alignment="0" pref="322" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
@@ -1233,6 +1253,7 @@
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
+                    <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
                     <Property name="verticalScrollBarPolicy" type="int" value="22"/>
                   </Properties>
                   <Constraints>
@@ -1257,11 +1278,8 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="j2_1Separator1" alignment="0" pref="334" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="paneFachJ2_1_1" pref="324" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="j2_1Separator1" alignment="0" pref="322" max="32767" attributes="0"/>
+                              <Component id="paneFachJ2_1_1" alignment="0" pref="322" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
@@ -1407,6 +1425,7 @@
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
+                    <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
                     <Property name="verticalScrollBarPolicy" type="int" value="22"/>
                   </Properties>
                   <Constraints>
@@ -1431,11 +1450,8 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="j2_2Separator1" alignment="0" pref="334" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="paneFachJ2_2_1" pref="324" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="j2_2Separator1" alignment="0" pref="322" max="32767" attributes="0"/>
+                              <Component id="paneFachJ2_2_1" alignment="0" pref="322" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
@@ -1641,9 +1657,31 @@
                 <Property name="text" type="java.lang.String" value="Halbjahr"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnSpeichern">
+            <Component class="javax.swing.JButton" name="btnBearbeitenFach">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Speichern"/>
+                <Property name="text" type="java.lang.String" value="Bearbeitung Speichern"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnHinzufuegenFach">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Fach Hinzuf&#xfc;gen"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnLoeschenFach">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Fach L&#xf6;schen"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoeschenFachActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblTitelFach">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="1"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="F&#xe4;cher hinzuf&#xfc;gen und bearbeiten"/>
               </Properties>
             </Component>
           </SubComponents>
