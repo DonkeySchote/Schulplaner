@@ -1230,7 +1230,7 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="notizScrollPane" pref="261" max="32767" attributes="0"/>
+                                          <Component id="notizScrollPane" pref="263" max="32767" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                   <Component id="txfName" pref="110" max="32767" attributes="0"/>
@@ -1263,10 +1263,6 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="mitteTerminSeparator" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="linkerPane" min="-2" pref="476" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="22" max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                       <Component id="lblTitelTermin" min="-2" max="-2" attributes="0"/>
@@ -1311,8 +1307,9 @@
                       <Component id="btnHinzufuegenTermin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnLoeschenTermin" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="96" max="32767" attributes="0"/>
                   </Group>
+                  <Component id="linkerPane" alignment="0" pref="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -1375,7 +1372,7 @@
                                   <Component id="anstSeparator1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="paneAnstTermin2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="193" max="32767" attributes="0"/>
+                                  <EmptySpace pref="187" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1889,16 +1886,14 @@
                               <EmptySpace min="2" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="jTextField1" pref="98" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txfZeugnis" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txfMoeglich" max="32767" attributes="0"/>
-                                      <Component id="txfErziehlt" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="txfDurchschnitt" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="txfKlausur" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="spinnerHalbjahr" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cBoxFachNote" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="btnSucheFach" alignment="0" pref="98" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="txfZeugnis" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txfMoeglich" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txfErziehlt" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txfDurchschnitt" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txfKlausur" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="spinnerHalbjahr" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cBoxFachNote" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnSucheFach" alignment="0" pref="98" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                           </Group>
@@ -1909,10 +1904,6 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jSeparator1" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jTabbedPane3" min="-2" pref="476" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1963,6 +1954,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
+                  <Component id="jTabbedPane3" alignment="0" pref="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -2026,7 +2018,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jPanel3" min="-2" pref="107" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="348" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="357" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2137,7 +2129,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jPanel5" min="-2" pref="107" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="348" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="357" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2250,7 +2242,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jPanel9" min="-2" pref="107" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="348" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="357" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2360,7 +2352,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jPanel11" min="-2" pref="107" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="348" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="357" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
