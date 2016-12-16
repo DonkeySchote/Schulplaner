@@ -15,10 +15,22 @@ public class Pruefung extends Klausur implements Serializable {
     private int wertung;
     private String fach;
 
-    public Pruefung(String termin, int wertung, String fach) {
+    public Pruefung(int wertung, String fach, String termin) {
+        super(termin);
         this.wertung = wertung;
         this.fach = fach;
-        this.termin = termin;
+    }
+
+    public Pruefung() {
+        super(null);
+    }
+
+    public int getWertung() {
+        return wertung;
+    }
+
+    public String getFach() {
+        return fach;
     }
 
 }
