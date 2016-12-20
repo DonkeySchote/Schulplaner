@@ -1,4 +1,5 @@
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /*
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author Nicole
  */
-public class Fach {
+public class Fach implements Serializable{
     private int zeugnisnote;
     private String lehrer;
     private ArrayList <Integer> stunden;
@@ -29,6 +30,7 @@ public class Fach {
     {
         stunden = new ArrayList <Integer> ();
         klausur = new ArrayList <Klausur> ();
+        this.name = name;
     }
     
     public void setZeugnisnote(int zeugnisnote)
@@ -101,5 +103,15 @@ public class Fach {
     public int getAnzahlKlausur()
     {
         return klausur.size();
+    }
+    
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+    
+    public String getName()
+    {
+        return name;
     }
 }
