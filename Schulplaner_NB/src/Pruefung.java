@@ -33,4 +33,12 @@ public class Pruefung extends Klausur implements Serializable {
         return fach;
     }
 
+    public void setWertung(int wertung) {
+        this.wertung = wertung;
+    }
+
+    public void setFach(String fach) {
+        this.fach = fach;
+    }
+
 }
