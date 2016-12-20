@@ -13,24 +13,12 @@ import java.util.ArrayList;
  * @author nicole.wagner
  */
 public class Halbjahr implements Serializable{
-    
-    private int halbjahr;
+
     private ArrayList <Fach> faecher;
     
-    public Halbjahr(int halbjahr)
+    public Halbjahr()
     {
-        this.halbjahr = halbjahr;
         faecher = new ArrayList <Fach> ();
-    }
-    
-    public void setHalbjahr(int halbjahr)
-    {
-        this.halbjahr = halbjahr;
-    }
-    
-    public int getHaljahr()
-    {
-        return halbjahr;
     }
     
     public Fach getFach(int fachid)
