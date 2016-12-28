@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import javax.swing.JPanel;
 
 
@@ -25,6 +26,25 @@ public class FachPanel extends JPanel{
     JTextField txfNoteZeugnis;
     JTextField txfNoteKA;
     
+    public JTextField getTxfNoteZeugnis(){
+        return txfNoteZeugnis;
+    }
+    
+    public JTextField getTxfNoteKA(){
+        return txfNoteKA;
+    }
+    
+    public void setUnterrichtszeiten(String stunden){
+        lblUnterrichtszeiten.setText("Unterrichtszeiten: " + stunden);
+    }
+    
+    public void setFach(String fach){
+        lblFach.setText(fach);
+    }
+    
+    public void setLehrer(String lehrer){
+        lblLehrer.setText(lehrer);
+    }
     
     public FachPanel(){
         layout = new javax.swing.GroupLayout(this);
@@ -33,40 +53,13 @@ public class FachPanel extends JPanel{
         
         lblFach = new JLabel("Fach");//<-ersetzt
         lblLehrer = new JLabel("Lehrer");//<-ersetzt
-        lblNoteKA = new JLabel("Klausuren Noten: ");
-        lblNoteZeugnis = new JLabel("Zeugnis Note: ");
+        lblNoteKA = new JLabel("Klausurennote: ");
+        lblNoteZeugnis = new JLabel("Zeugnisnote: ");
         lblUnterrichtszeiten = new JLabel("Unterrichtszeiten: ");
         txfNoteZeugnis = new JTextField();
         txfNoteKA = new JTextField();
         
         
-        /*GroupLayout.ParallelGroup hortParaGroup = fachPanelFach.createParallelGroup();
-        hortParaGroup.addComponent(lblFach);
-        fachPanelFach.setHorizontalGroup(hortParaGroup);
-        
-        GroupLayout.ParallelGroup vertParaGroup = fachPanelFach.createParallelGroup();
-        vertParaGroup.addComponent(lblFach);
-        fachPanelFach.setVerticalGroup(vertParaGroup);*/
-        /*
-        fachPanelFach.setHorizontalGroup(
-            fachPanelFach.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fachPanelFach.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(fachPanelFach.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblFach)
-                    .addComponent(lblLehrer))
-                .addContainerGap(326, Short.MAX_VALUE))
-        );
-        fachPanelFach.setVerticalGroup(
-            fachPanelFach.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fachPanelFach.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblFach)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblLehrer)
-                .addContainerGap(246, Short.MAX_VALUE))
-        );
-        */
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
