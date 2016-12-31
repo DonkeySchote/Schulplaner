@@ -22,10 +22,43 @@ public class Planer implements Serializable {
 
     }
 
-    public void setHalbjahr(Halbjahr halbjahr,int nummer) {
+    public void setHalbjahr(Halbjahr halbjahr, int nummer) {
         halbjahren[nummer] = halbjahr;
     }
+
+    public Halbjahr getHalbjahr() {
+        Halbjahr tempHalbjahr = new Halbjahr();
+        return tempHalbjahr;
+    }
+
+    public Halbjahr getHalbjahr(int halbjahr) {
+        return halbjahren[halbjahr];
+    }
+
+    public Fach findFach(String fachname, int halbjahr) {
+        return halbjahren[halbjahr].getFachByName(fachname);
+    }
+
+    public double getNotenStandFach(int fachid, int halbjahr) {
+        double summe = 0;
+
+        for (int i = 0; i < halbjahren[halbjahr].getFach(fachid).getAnzahlKlausur(); i++) {
+            summe =+ halbjahren[halbjahr].getFach(fachid).getKlausur(i).getNote();
+        }
+        summe = summe / halbjahren[halbjahr].getFach(fachid).getAnzahlKlausur();
+        return summe;
+    }
     
-    
+    public int rechneGesamtPunkte(){
+        int summe = 0;
+        
+        for (int i = 0; i < halbjahren.length; i++) {
+            summe =+ halbjahren[i].rechneHalbjahrPunkte();
+        }
+        
+        summe =+ abi.rechnePuknt();
+        
+        return summe;
+    }
 
 }
