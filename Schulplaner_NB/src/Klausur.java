@@ -16,12 +16,13 @@ public class Klausur implements Serializable, Comparable<Klausur> {
     protected Date termin;
     protected String notiz;
     protected int note;
-
+  
     public Klausur(Date termin) {
         this.termin = termin;
         notiz = "";
+        note = -1;
     }
-
+    
     public Date getTermin() {
         return termin;
     }
@@ -49,6 +50,9 @@ public class Klausur implements Serializable, Comparable<Klausur> {
         return note;
     }
 
+    public String toString() {
+        return termin.toString() + notiz;
+    }
     @Override
     public int compareTo(Klausur klausur) {
         return this.termin.compareTo(klausur.getTermin());
