@@ -26,10 +26,6 @@ public class Planer implements Serializable {
         halbjahren[nummer] = halbjahr;
     }
 
-    public Halbjahr getHalbjahr() {
-        Halbjahr tempHalbjahr = new Halbjahr();
-        return tempHalbjahr;
-    }
 
     public Halbjahr getHalbjahr(int halbjahr) {
         return halbjahren[halbjahr];

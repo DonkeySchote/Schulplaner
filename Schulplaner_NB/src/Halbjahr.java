@@ -23,10 +23,10 @@ public class Halbjahr implements Serializable {
         return faecher.get(fachid);
     }
 
-    public Fach getFach() {
-        Fach tempFach = new Fach();
-        return tempFach;
+    public int getAnzahlFach() {
+        return faecher.size();
     }
+   
 
     public Fach getFachByName(String name) {
         int j = -1;

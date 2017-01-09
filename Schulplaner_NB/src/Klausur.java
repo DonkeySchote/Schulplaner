@@ -1,5 +1,6 @@
 
 import java.io.Serializable;
+import java.util.Date;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -10,22 +11,22 @@ import java.io.Serializable;
  *
  * @author william.kilburg
  */
-public class Klausur implements Serializable {
+public class Klausur implements Serializable, Comparable<Klausur> {
 
-    protected String termin;
+    protected Date termin;
     protected String notiz;
     protected int note;
 
-    public Klausur(String termin) {
+    public Klausur(Date termin) {
         this.termin = termin;
         notiz = "";
     }
 
-    public String getTermin() {
+    public Date getTermin() {
         return termin;
     }
 
-    public void setTermin(String termin) {
+    public void setTermin(Date termin) {
         this.termin = termin;
     }
 
@@ -46,5 +47,10 @@ public class Klausur implements Serializable {
 
     public int getNote() {
         return note;
+    }
+
+    @Override
+    public int compareTo(Klausur klausur) {
+        return this.termin.compareTo(klausur.getTermin());
     }
 }
