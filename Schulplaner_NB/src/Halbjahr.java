@@ -26,12 +26,38 @@ public class Halbjahr implements Serializable {
     public int getAnzahlFach() {
         return faecher.size();
     }
+    
+    public int getFachid(String name){
+        int temp = -1;
+        for (int i = 0; i < faecher.size(); i++) {
+            if (faecher.get(i) != null) {
+                if (faecher.get(i).getName().equals(name)) {
+                    temp = i;
+                }
+            }
+        }
+        return temp;
+    }
+
+    public boolean existFach(String name) {
+        boolean temp = false;
+        for (int i = 0; i < faecher.size(); i++) {
+            if (faecher.get(i) != null) {
+                if (faecher.get(i).getName().equals(name)) {
+                    temp = true;
+                }
+            }
+        }
+        return temp;
+    }
 
     public Fach getFachByName(String name) {
         Fach temp = new Fach();
         for (int i = 0; i < faecher.size(); i++) {
-            if (faecher.get(i).getName() == name) {
-                temp = faecher.get(i);
+            if (faecher.get(i) != null) {
+                if (faecher.get(i).getName().equals(name)) {
+                    temp = faecher.get(i);
+                }
             }
         }
         return temp;
