@@ -1016,6 +1016,11 @@ public class GUI extends javax.swing.JFrame {
         btnBearbeitenTermin.setText("Bearbeitung Speichern");
 
         btnHinzufuegenTermin.setText("Termin hinzufügen");
+        btnHinzufuegenTermin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHinzufuegenTerminActionPerformed(evt);
+            }
+        });
 
         cbFach.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbFach.addActionListener(new java.awt.event.ActionListener() {
