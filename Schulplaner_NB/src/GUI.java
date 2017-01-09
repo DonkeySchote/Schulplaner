@@ -1022,12 +1022,6 @@ public class GUI extends javax.swing.JFrame {
 
         btnBearbeitenTermin.setText("Bearbeitung Speichern");
         btnBearbeitenTermin.setEnabled(false);
-        btnBearbeitenTermin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBearbeitenTerminActionPerformed(evt);
-            }
-        });
-
 
         btnHinzufuegenTermin.setText("Termin hinzufügen");
         btnHinzufuegenTermin.addActionListener(new java.awt.event.ActionListener() {
@@ -1688,12 +1682,8 @@ public class GUI extends javax.swing.JFrame {
             }
             tempHalbjahr.addFach(tempFach);
         }
-<<<<<<< HEAD
         terminFaecherFuellen();
- 
-=======
 
->>>>>>> 745715eabd4096ce5ab48d970350e225e7b7be50
     }//GEN-LAST:event_btnHinzufuegenFachActionPerformed
 
 
