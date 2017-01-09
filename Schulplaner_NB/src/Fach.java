@@ -24,6 +24,7 @@ public class Fach implements Serializable{
     {
         stunden = new ArrayList <Integer> ();
         klausur = new ArrayList <Klausur> ();
+        this.name ="";
     }
     
     public Fach(String name)

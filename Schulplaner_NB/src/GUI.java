@@ -1113,6 +1113,11 @@ public class GUI extends javax.swing.JFrame {
         cBoxAbi.setText("Abitür Prüfung");
 
         btnBearbeitenTermin.setText("Bearbeitung Speichern");
+        btnBearbeitenTermin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBearbeitenTerminActionPerformed(evt);
+            }
+        });
 
         btnHinzufuegenTermin.setText("Termin hinzufügen");
 
@@ -1649,7 +1654,43 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoeschenFachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoeschenFachActionPerformed
-        // TODO add your handling code here:
+        String tempName, tempLehrer;
+        int tempHalbjahrNummer, tempfachid;
+        Halbjahr tempHalbjahr = new Halbjahr();
+        Fach tempFach = new Fach();
+
+        tempName = txfFach.getText();
+
+        if (rdbtnJ1.isSelected()) {
+            if (rdbtnHalbjahr1.isSelected()) {
+                tempHalbjahrNummer = 0;
+                tempHalbjahr = planer.getHalbjahr(tempHalbjahrNummer);
+            } else if (rdbtnHalbjahr2.isSelected()) {
+                tempHalbjahrNummer = 1;
+                tempHalbjahr = planer.getHalbjahr(tempHalbjahrNummer);
+            }
+        } else if (rdbtnJ2.isSelected()) {
+            if (rdbtnHalbjahr1.isSelected()) {
+                tempHalbjahrNummer = 2;
+                tempHalbjahr = planer.getHalbjahr(tempHalbjahrNummer);
+            } else if (rdbtnHalbjahr2.isSelected()) {
+                tempHalbjahrNummer = 3;
+                tempHalbjahr = planer.getHalbjahr(tempHalbjahrNummer);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "HalbJahr und Kurstufe auswählen");
+        }
+
+        if (tempHalbjahr.getAnzahlFach() > 0) {
+            if (tempHalbjahr.existFach(tempName) == true) {
+                tempfachid = tempHalbjahr.getFachid(tempName);
+                tempHalbjahr.deleteFach(tempfachid);
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Dieses Fach gibt es nicht");
+            }
+        }
+
     }//GEN-LAST:event_btnLoeschenFachActionPerformed
 
     private void cbFachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbFachActionPerformed
@@ -1676,7 +1717,7 @@ public class GUI extends javax.swing.JFrame {
                 tempHalbjahrNummer = 1;
                 tempHalbjahr = planer.getHalbjahr(tempHalbjahrNummer);
             }
-        } else if (rdbtnJ1.isSelected()) {
+        } else if (rdbtnJ2.isSelected()) {
             if (rdbtnHalbjahr1.isSelected()) {
                 tempHalbjahrNummer = 2;
                 tempHalbjahr = planer.getHalbjahr(tempHalbjahrNummer);
@@ -1688,8 +1729,19 @@ public class GUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "HalbJahr und Kurstufe auswählen");
         }
 
-        if (tempHalbjahr.getFachByName(tempName).getName() == tempName) {
-            JOptionPane.showMessageDialog(this, "Dieses Fach gibt es schon");
+        if (tempHalbjahr.getAnzahlFach() > 0) {
+            if (tempHalbjahr.existFach(tempName) == true) {
+                JOptionPane.showMessageDialog(this, "Dieses Fach gibt es schon");
+            } else {
+                tempFach.setLehrer(tempLehrer);
+                tempFach.setName(tempName);
+                tempFach.setKlammerbar(cbKlamemrbar.isSelected());
+
+                if (txfZeugnis.getText().equals("") == false) {
+                    tempFach.setZeugnisnote(Integer.valueOf(txfZeugnis.getText()));
+                }
+                tempHalbjahr.addFach(tempFach);
+            }
         } else {
             tempFach.setLehrer(tempLehrer);
             tempFach.setName(tempName);
@@ -1698,16 +1750,68 @@ public class GUI extends javax.swing.JFrame {
             if (txfZeugnis.getText().equals("") == false) {
                 tempFach.setZeugnisnote(Integer.valueOf(txfZeugnis.getText()));
             }
-
             tempHalbjahr.addFach(tempFach);
         }
-
 
     }//GEN-LAST:event_btnHinzufuegenFachActionPerformed
 
     private void btnBearbeitenFachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBearbeitenFachActionPerformed
-        // TODO add your handling code here:
+        String tempName, tempLehrer;
+        int tempHalbjahrNummer;
+        Halbjahr tempHalbjahr = new Halbjahr();
+        Fach tempFach = new Fach();
+
+        tempName = txfFach.getText();
+        tempLehrer = txfLehrer.getText();
+
+        if (rdbtnJ1.isSelected()) {
+            if (rdbtnHalbjahr1.isSelected()) {
+                tempHalbjahrNummer = 0;
+                tempHalbjahr = planer.getHalbjahr(tempHalbjahrNummer);
+            } else if (rdbtnHalbjahr2.isSelected()) {
+                tempHalbjahrNummer = 1;
+                tempHalbjahr = planer.getHalbjahr(tempHalbjahrNummer);
+            }
+        } else if (rdbtnJ2.isSelected()) {
+            if (rdbtnHalbjahr1.isSelected()) {
+                tempHalbjahrNummer = 2;
+                tempHalbjahr = planer.getHalbjahr(tempHalbjahrNummer);
+            } else if (rdbtnHalbjahr2.isSelected()) {
+                tempHalbjahrNummer = 3;
+                tempHalbjahr = planer.getHalbjahr(tempHalbjahrNummer);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "HalbJahr und Kurstufe auswählen");
+        }
+
+        if (tempHalbjahr.getAnzahlFach() > 0) {
+            if (tempHalbjahr.existFach(tempName) == true) {
+                tempFach.setLehrer(tempLehrer);
+                tempFach.setKlammerbar(cbKlamemrbar.isSelected());
+
+                if (txfZeugnis.getText().equals("") == false) {
+                    tempFach.setZeugnisnote(Integer.valueOf(txfZeugnis.getText()));
+                }
+                tempHalbjahr.addFach(tempFach);
+            } else {
+                JOptionPane.showMessageDialog(this, "Dieses Fach gibt es nicht");
+            }
+        } else {
+            tempFach.setLehrer(tempLehrer);
+            tempFach.setKlammerbar(cbKlamemrbar.isSelected());
+
+            if (txfZeugnis.getText().equals("") == false) {
+                tempFach.setZeugnisnote(Integer.valueOf(txfZeugnis.getText()));
+            }
+            tempHalbjahr.addFach(tempFach);
+        }
+
+
     }//GEN-LAST:event_btnBearbeitenFachActionPerformed
+
+    private void btnBearbeitenTerminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBearbeitenTerminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBearbeitenTerminActionPerformed
 
     /**
      * @param args the command line arguments
