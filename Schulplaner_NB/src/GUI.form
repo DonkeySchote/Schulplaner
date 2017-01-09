@@ -34,7 +34,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane1" alignment="0" pref="646" max="32767" attributes="0"/>
+          <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -286,6 +286,7 @@
                                               <Component id="lblJahrgangstufe" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="lblHalbjahrSet" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="lblFachSet" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblKlammerbar" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -313,6 +314,7 @@
                                                       <Component id="rdbtnHalbjahr2" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
+                                              <Component id="cbKlamemrbar" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Component id="btnHinzufuegenFach" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -321,13 +323,13 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="117" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="172" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="linkerFachPane" alignment="0" pref="608" max="32767" attributes="0"/>
+                  <Component id="linkerFachPane" alignment="0" pref="618" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="lblTitelFach" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
@@ -357,7 +359,12 @@
                           <Component id="lblHalbjahrSet" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="rdbtnHalbjahr2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblKlammerbar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbKlamemrbar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnBearbeitenFach" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnHinzufuegenFach" min="-2" max="-2" attributes="0"/>
@@ -1127,6 +1134,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Bearbeitung Speichern"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBearbeitenFachActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnHinzufuegenFach">
               <Properties>
@@ -1151,6 +1161,16 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="F&#xe4;cher hinzuf&#xfc;gen und bearbeiten"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblKlammerbar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Klammerbar"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="cbKlamemrbar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="ja ? "/>
               </Properties>
             </Component>
           </SubComponents>

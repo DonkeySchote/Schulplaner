@@ -27,7 +27,8 @@ public class GUI extends javax.swing.JFrame {
             planer = new Planer();
 
             for (int i = 0; i < 4; i++) {
-                planer.setHalbjahr(planer.getHalbjahr(), i);
+                Halbjahr temphalb = new Halbjahr();
+                planer.setHalbjahr(temphalb, i);
             }
         }
     }
@@ -123,6 +124,8 @@ public class GUI extends javax.swing.JFrame {
         btnHinzufuegenFach = new javax.swing.JButton();
         btnLoeschenFach = new javax.swing.JButton();
         lblTitelFach = new javax.swing.JLabel();
+        lblKlammerbar = new javax.swing.JLabel();
+        cbKlamemrbar = new javax.swing.JCheckBox();
         paneTermine = new javax.swing.JPanel();
         mitteTerminSeparator = new javax.swing.JSeparator();
         linkerPane = new javax.swing.JTabbedPane();
@@ -740,6 +743,11 @@ public class GUI extends javax.swing.JFrame {
         lblHalbjahrSet.setText("Halbjahr");
 
         btnBearbeitenFach.setText("Bearbeitung Speichern");
+        btnBearbeitenFach.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBearbeitenFachActionPerformed(evt);
+            }
+        });
 
         btnHinzufuegenFach.setText("Fach Hinzufügen");
         btnHinzufuegenFach.addActionListener(new java.awt.event.ActionListener() {
@@ -758,6 +766,10 @@ public class GUI extends javax.swing.JFrame {
         lblTitelFach.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblTitelFach.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitelFach.setText("Fächer hinzufügen und bearbeiten");
+
+        lblKlammerbar.setText("Klammerbar");
+
+        cbKlamemrbar.setText("ja ? ");
 
         javax.swing.GroupLayout paneFachLayout = new javax.swing.GroupLayout(paneFach);
         paneFach.setLayout(paneFachLayout);
@@ -781,7 +793,8 @@ public class GUI extends javax.swing.JFrame {
                                         .addComponent(lblZeugnisSet)
                                         .addComponent(lblJahrgangstufe)
                                         .addComponent(lblHalbjahrSet)
-                                        .addComponent(lblFachSet))
+                                        .addComponent(lblFachSet)
+                                        .addComponent(lblKlammerbar))
                                     .addGap(18, 18, 18)
                                     .addGroup(paneFachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(paneFachLayout.createSequentialGroup()
@@ -800,14 +813,15 @@ public class GUI extends javax.swing.JFrame {
                                                     .addGap(60, 60, 60)))
                                             .addGroup(paneFachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(rdbtnJ2)
-                                                .addComponent(rdbtnHalbjahr2)))))
+                                                .addComponent(rdbtnHalbjahr2)))
+                                        .addComponent(cbKlamemrbar, javax.swing.GroupLayout.Alignment.LEADING)))
                                 .addComponent(btnHinzufuegenFach))
                             .addGap(24, 24, 24))))
-                .addGap(0, 117, Short.MAX_VALUE))
+                .addGap(0, 172, Short.MAX_VALUE))
         );
         paneFachLayout.setVerticalGroup(
             paneFachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(linkerFachPane, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
+            .addComponent(linkerFachPane, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
             .addGroup(paneFachLayout.createSequentialGroup()
                 .addComponent(lblTitelFach)
                 .addGap(8, 8, 8)
@@ -832,7 +846,11 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(rdbtnHalbjahr1)
                     .addComponent(lblHalbjahrSet)
                     .addComponent(rdbtnHalbjahr2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(1, 1, 1)
+                .addGroup(paneFachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblKlammerbar)
+                    .addComponent(cbKlamemrbar))
+                .addGap(18, 18, 18)
                 .addComponent(btnBearbeitenFach)
                 .addGap(18, 18, 18)
                 .addComponent(btnHinzufuegenFach)
@@ -1624,7 +1642,7 @@ public class GUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 646, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
 
         pack();
@@ -1645,33 +1663,51 @@ public class GUI extends javax.swing.JFrame {
     private void btnHinzufuegenFachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHinzufuegenFachActionPerformed
         String tempName, tempLehrer;
         int tempHalbjahrNummer;
-        Halbjahr tempHalbjahr;
+        Halbjahr tempHalbjahr = new Halbjahr();
+        Fach tempFach = new Fach();
 
         tempName = txfFach.getText();
         tempLehrer = txfLehrer.getText();
         if (rdbtnJ1.isSelected()) {
             if (rdbtnHalbjahr1.isSelected()) {
-                tempHalbjahrNummer = 1;
+                tempHalbjahrNummer = 0;
                 tempHalbjahr = planer.getHalbjahr(tempHalbjahrNummer);
             } else if (rdbtnHalbjahr2.isSelected()) {
-                tempHalbjahrNummer = 2;
+                tempHalbjahrNummer = 1;
                 tempHalbjahr = planer.getHalbjahr(tempHalbjahrNummer);
             }
         } else if (rdbtnJ1.isSelected()) {
             if (rdbtnHalbjahr1.isSelected()) {
-                tempHalbjahrNummer = 3;
+                tempHalbjahrNummer = 2;
                 tempHalbjahr = planer.getHalbjahr(tempHalbjahrNummer);
             } else if (rdbtnHalbjahr2.isSelected()) {
-                tempHalbjahrNummer = 4;
+                tempHalbjahrNummer = 3;
                 tempHalbjahr = planer.getHalbjahr(tempHalbjahrNummer);
             }
         } else {
             JOptionPane.showMessageDialog(this, "HalbJahr und Kurstufe auswählen");
         }
-        
-        //tempHalbjahr.
+
+        if (tempHalbjahr.getFachByName(tempName).getName() == tempName) {
+            JOptionPane.showMessageDialog(this, "Dieses Fach gibt es schon");
+        } else {
+            tempFach.setLehrer(tempLehrer);
+            tempFach.setName(tempName);
+            tempFach.setKlammerbar(cbKlamemrbar.isSelected());
+
+            if (txfZeugnis.getText().equals("") == false) {
+                tempFach.setZeugnisnote(Integer.valueOf(txfZeugnis.getText()));
+            }
+
+            tempHalbjahr.addFach(tempFach);
+        }
+
 
     }//GEN-LAST:event_btnHinzufuegenFachActionPerformed
+
+    private void btnBearbeitenFachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBearbeitenFachActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBearbeitenFachActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1731,6 +1767,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox cBoxFachSp;
     private javax.swing.JComboBox cBoxTag;
     private javax.swing.JComboBox cbFach;
+    private javax.swing.JCheckBox cbKlamemrbar;
     private javax.swing.JCheckBox checkBoxA;
     private javax.swing.JCheckBox checkBoxB;
     private javax.swing.JSeparator j1_1Separator1;
@@ -1815,6 +1852,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblJ2_2NotenKA1;
     private javax.swing.JLabel lblJ2_2Wann1;
     private javax.swing.JLabel lblJahrgangstufe;
+    private javax.swing.JLabel lblKlammerbar;
     private javax.swing.JLabel lblKlausurNoteJ11;
     private javax.swing.JLabel lblKlausurNoteJ21;
     private javax.swing.JLabel lblKlausurNoteJ22;

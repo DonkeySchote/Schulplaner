@@ -1,5 +1,6 @@
 
 import java.io.Serializable;
+import java.util.Date;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,7 +16,7 @@ public class Pruefung extends Klausur implements Serializable {
     private int wertung;
     private String fach;
 
-    public Pruefung(int wertung, String fach, String termin) {
+    public Pruefung(int wertung, String fach, Date termin) {
         super(termin);
         this.wertung = wertung;
         this.fach = fach;
