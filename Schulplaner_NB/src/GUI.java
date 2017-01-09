@@ -22,7 +22,7 @@ public class GUI extends javax.swing.JFrame {
     Speicher speicher;
     ArrayList<Klausur> alleKlausuren;
     ArrayList<Klausur> anstKlausuren;
-    
+
     /**
      * Creates new form Main
      */
@@ -41,27 +41,26 @@ public class GUI extends javax.swing.JFrame {
         }
         terminFaecherFuellen();
     }
-    
-    public void terminFaecherFuellen(){
-        cbHalbjahre.removeAllItems();
-        if(cbHalbjahre.getSelectedIndex() <4){
+
+    public void terminFaecherFuellen() {
+        cbFach.removeAllItems();
+        if (cbHalbjahre.getSelectedIndex() < 4) {
             Halbjahr halbjahr = planer.getHalbjahr(cbHalbjahre.getSelectedIndex());
             for (int i = 0; i < halbjahr.getAnzahlFach(); i++) {
                 cbFach.addItem(halbjahr.getFach(i));
             }
         }
     }
-    
-    public void drawAlleTermine(){
+
+    public void drawAlleTermine() {
         alleKlausuren = new ArrayList();
         ArrayList<TerminPanel> panels = new ArrayList<>();
-        
+
         for (int i = 0; i < 4; i++) { //alle halbjahre
             Halbjahr semester = planer.getHalbjahr(i);
-            if(semester==null){
+            if (semester == null) {
                 break;
-            }
-            else{
+            } else {
                 for (int j = 0; j < semester.getAnzahlFach(); j++) {
                     Fach fach = semester.getFach(j);
                     for (int k = 0; k < fach.getAnzahlKlausur(); k++) {
@@ -77,37 +76,36 @@ public class GUI extends javax.swing.JFrame {
                 }
             }
         }
-        
+
         Collections.sort(alleKlausuren);
         Collections.sort(panels);
         //System.out.println(panels.size());
         panelAllTermin.removeAll();
         for (int i = 0; i < panels.size(); i++) {
             TerminPanel panel = panels.get(i);
-            panel.setBounds(0, i*160, panelAnstTermin.getWidth(), 159);
+            panel.setBounds(0, i * 160, panelAnstTermin.getWidth(), 159);
             panelAllTermin.add(panel);
             //System.out.println(panel.datum.toString());
-            panelAllTermin.setPreferredSize(new Dimension(panelAllTermin.getWidth(), (i+1)*160));
+            panelAllTermin.setPreferredSize(new Dimension(panelAllTermin.getWidth(), (i + 1) * 160));
         }
         scrollPaneAllTermin.revalidate();
         panelAllTermin.revalidate();
         panelAllTermin.repaint();
     }
-    
-    public void drawAnstTermine(){
+
+    public void drawAnstTermine() {
         alleKlausuren = new ArrayList();
         ArrayList<TerminPanel> panels = new ArrayList<>();
-        
+
         for (int i = 0; i < 4; i++) { //alle halbjahre
             Halbjahr semester = planer.getHalbjahr(i);
-            if(semester==null){
+            if (semester == null) {
                 break;
-            }
-            else{
+            } else {
                 for (int j = 0; j < semester.getAnzahlFach(); j++) {
                     Fach fach = semester.getFach(j);
                     for (int k = 0; k < fach.getAnzahlKlausur(); k++) {
-                        if(fach.getKlausur(k).getTermin().compareTo(new Date())>0){
+                        if (fach.getKlausur(k).getTermin().compareTo(new Date()) > 0) {
                             //System.out.println(fach.getKlausur(k));
                             TerminPanel panel = new TerminPanel();
                             panel.setFach(fach.getName());
@@ -121,23 +119,22 @@ public class GUI extends javax.swing.JFrame {
                 }
             }
         }
-        
+
         Collections.sort(alleKlausuren);
         Collections.sort(panels);
         //System.out.println(panels.size());
         panelAnstTermin.removeAll();
         for (int i = 0; i < panels.size(); i++) {
             TerminPanel panel = panels.get(i);
-            panel.setBounds(0, i*160, panelAnstTermin.getWidth(), 159);
+            panel.setBounds(0, i * 160, panelAnstTermin.getWidth(), 159);
             panelAnstTermin.add(panel);
             //System.out.println(panel.datum.toString());
-            panelAnstTermin.setPreferredSize(new Dimension(panelAllTermin.getWidth(), i*160));
+            panelAnstTermin.setPreferredSize(new Dimension(panelAllTermin.getWidth(), i * 160));
         }
         scrollPaneAnstTermin.revalidate();
         panelAnstTermin.revalidate();
         panelAnstTermin.repaint();
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -818,12 +815,16 @@ public class GUI extends javax.swing.JFrame {
 
         lblJahrgangstufe.setText("Jahrgangstufe");
 
+        btngrpJahrgang.add(rdbtnJ1);
         rdbtnJ1.setText("J1");
 
+        btngrpJahrgang.add(rdbtnJ2);
         rdbtnJ2.setText("J2");
 
+        btngrpHalbjahr.add(rdbtnHalbjahr1);
         rdbtnHalbjahr1.setText("erstes");
 
+        btngrpHalbjahr.add(rdbtnHalbjahr2);
         rdbtnHalbjahr2.setText("zweites");
 
         lblHalbjahrSet.setText("Halbjahr");
@@ -992,6 +993,7 @@ public class GUI extends javax.swing.JFrame {
         linkerPane.addTab("Alle Termine", scrollPaneAllTermin);
 
         txfName.setToolTipText("Termin Name");
+        txfName.setEnabled(false);
 
         lblTerminName.setText("Termin Name");
 
@@ -1006,6 +1008,8 @@ public class GUI extends javax.swing.JFrame {
         spinnerDatum.setModel(new javax.swing.SpinnerDateModel());
 
         lblRaum.setText("Raum");
+
+        txfRaum.setEnabled(false);
 
         lblNotiz.setText("Notiz");
 
@@ -1690,10 +1694,10 @@ public class GUI extends javax.swing.JFrame {
     private void btnHinzufuegenTerminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHinzufuegenTerminActionPerformed
         Klausur klausur = new Klausur((Date) spinnerDatum.getValue());
         klausur.setNotiz(txaNotiz.getText());
-        Fach fach = new Fach();
-        fach.setName("Englisch");
+        //TODO Error handling
+        Fach fach = (Fach) cbFach.getSelectedItem();
         fach.addKlausur(klausur);
-        planer.getHalbjahr(0).addFach(fach);
+        
         drawAlleTermine();
         drawAnstTermine();
     }//GEN-LAST:event_btnHinzufuegenTerminActionPerformed
@@ -1753,15 +1757,12 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBearbeitenFachActionPerformed
 
 
-    
-
     private void btnSucheFachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSucheFachActionPerformed
         String fachname = "";
-        txfZeugnis.setText(Integer.toString(planer.getHalbjahr(spinnerHalbjahr.getComponentCount()).getFachByName(fachname).getZeugnisnote())); 
+        txfZeugnis.setText(Integer.toString(planer.getHalbjahr(spinnerHalbjahr.getComponentCount()).getFachByName(fachname).getZeugnisnote()));
         String klausuren = "";
         {
-            for(int i=0; i<planer.getHalbjahr(spinnerHalbjahr.getComponentCount()).getFachByName(fachname).getAnzahlKlausur(); i++)
-            {
+            for (int i = 0; i < planer.getHalbjahr(spinnerHalbjahr.getComponentCount()).getFachByName(fachname).getAnzahlKlausur(); i++) {
                 klausuren = klausuren + "; " + Integer.toString(planer.getHalbjahr(spinnerHalbjahr.getComponentCount()).getFachByName(fachname).getKlausur(i).getNote());
             }
         }
@@ -1771,8 +1772,6 @@ public class GUI extends javax.swing.JFrame {
     private void cbHalbjahreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbHalbjahreActionPerformed
         terminFaecherFuellen();
     }//GEN-LAST:event_cbHalbjahreActionPerformed
-
-
 
     /**
      * @param args the command line arguments

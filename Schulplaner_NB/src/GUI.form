@@ -1107,21 +1107,33 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="rdbtnJ1">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="btngrpJahrgang"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="J1"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rdbtnJ2">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="btngrpJahrgang"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="J2"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rdbtnHalbjahr1">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="btngrpHalbjahr"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="erstes"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rdbtnHalbjahr2">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="btngrpHalbjahr"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="zweites"/>
               </Properties>
             </Component>
@@ -1401,6 +1413,7 @@
             <Component class="javax.swing.JTextField" name="txfName">
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value="Termin Name"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblTerminName">
@@ -1440,6 +1453,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txfRaum">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblNotiz">
               <Properties>
