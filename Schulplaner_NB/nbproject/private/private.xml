@@ -6,5 +6,15 @@
             <file>file:/C:/Users/william.kilburg/Documents/NetBeansProjects/Schulplaner/Schulplaner_NB/src/Abitur.java</file>
             <file>file:/C:/Users/william.kilburg/Documents/NetBeansProjects/Schulplaner/Schulplaner_NB/src/Pruefung.java</file>
         </group>
+        <group name="netbeans">
+            <file>file:/home/donkeyschote/Projects/Schule/Schulplaner/Schulplaner_NB/src/Planer.java</file>
+            <file>file:/home/donkeyschote/Projects/Schule/Schulplaner/Schulplaner_NB/src/TerminPanel.java</file>
+            <file>file:/home/donkeyschote/Projects/Schule/Schulplaner/Schulplaner_NB/src/Pruefung.java</file>
+            <file>file:/home/donkeyschote/Projects/Schule/Schulplaner/Schulplaner_NB/src/Fach.java</file>
+            <file>file:/home/donkeyschote/Projects/Schule/Schulplaner/Schulplaner_NB/src/Speicher.java</file>
+            <file>file:/home/donkeyschote/Projects/Schule/Schulplaner/Schulplaner_NB/src/GUI.java</file>
+            <file>file:/home/donkeyschote/Projects/Schule/Schulplaner/Schulplaner_NB/src/Halbjahr.java</file>
+            <file>file:/home/donkeyschote/Projects/Schule/Schulplaner/Schulplaner_NB/src/Klausur.java</file>
+        </group>
     </open-files>
 </project-private>

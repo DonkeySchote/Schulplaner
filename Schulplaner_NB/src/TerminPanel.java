@@ -1,4 +1,5 @@
 
+import java.util.Date;
 import javax.swing.JPanel;
 
 
@@ -17,13 +18,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class TerminPanel extends JPanel{
+public class TerminPanel extends JPanel implements Comparable<TerminPanel>{
     
     javax.swing.GroupLayout layout;
     JLabel lblTermin;
     JLabel lblDatum;
+    Date datum;
     JLabel lblFach;
-    JLabel lblRaum;
+    //JLabel lblRaum;
     JLabel lblNote;
     JScrollPane scrolldingens;
     JTextArea txaNotiz;
@@ -32,20 +34,31 @@ public class TerminPanel extends JPanel{
         return txaNotiz;
     }
     
-    public void setRaum(String raum){
-        lblRaum.setText(raum);
+    public void setNote(int note){
+        if(!(note==-1))
+            this.lblNote.setText("Note: " + String.valueOf(note));
     }
+    
+    /*public void setRaum(String raum){
+        lblRaum.setText(raum);
+    }*/
     
     public void setFach(String fach){
         lblFach.setText(fach);
     }
     
-    public void setDatum(String datum){
-        lblDatum.setText(datum);
+    public void setDatum(Date datum){
+        this.datum = datum;
+        lblDatum.setText(datum.toString());
     }
     
-    public void setTermin(String termin){
-        lblTermin.setText(termin);
+    public Date getDatum(){
+        return datum;
+    }
+    
+    @Override
+    public int compareTo(TerminPanel panel) {
+        return this.datum.compareTo(panel.getDatum());
     }
     
     public TerminPanel(){
@@ -53,10 +66,10 @@ public class TerminPanel extends JPanel{
         super.setLayout(layout);
         super.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         
-        lblTermin = new JLabel("Terminname");
+        lblTermin = new JLabel("Datum");
         lblDatum = new JLabel("Datum");
         lblFach = new JLabel("Fach");
-        lblRaum = new JLabel("Raum");
+        //lblRaum = new JLabel("Raum");
         lblNote = new JLabel("Note: ");
         txaNotiz = new JTextArea();
         scrolldingens = new JScrollPane();
@@ -77,7 +90,7 @@ public class TerminPanel extends JPanel{
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblFach)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblRaum))
+                        /*.addComponent(lblRaum)*/)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblNote)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -94,7 +107,7 @@ public class TerminPanel extends JPanel{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFach)
-                    .addComponent(lblRaum))
+                    /*.addComponent(lblRaum)*/)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblNote)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
