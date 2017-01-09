@@ -22,7 +22,7 @@ public class GUI extends javax.swing.JFrame {
     Speicher speicher;
     ArrayList<Klausur> alleKlausuren;
     ArrayList<Klausur> anstKlausuren;
-
+    
     /**
      * Creates new form Main
      */
@@ -38,8 +38,10 @@ public class GUI extends javax.swing.JFrame {
                 Halbjahr temphalb = new Halbjahr();
                 planer.setHalbjahr(temphalb, i);
             }
+            
         }
         terminFaecherFuellen();
+        refreshNoten();
     }
 
     public void terminFaecherFuellen() {
@@ -50,6 +52,13 @@ public class GUI extends javax.swing.JFrame {
                 cbFach.addItem(halbjahr.getFach(i));
             }
         }
+    }
+    
+    public void refreshNoten() {
+        drawNoten(notenj11Panel, notenj11ScrollPane, planer.getHalbjahr(0));
+        drawNoten(notenj12Panel, notenj12ScrollPane, planer.getHalbjahr(1));
+        drawNoten(notenj21Panel, notenj21ScrollPane, planer.getHalbjahr(2));
+        drawNoten(notenj22Panel, notenj22ScrollPane, planer.getHalbjahr(3));
     }
 
     public void drawAlleTermine() {
@@ -129,11 +138,42 @@ public class GUI extends javax.swing.JFrame {
             panel.setBounds(0, i * 160, panelAnstTermin.getWidth(), 159);
             panelAnstTermin.add(panel);
             //System.out.println(panel.datum.toString());
-            panelAnstTermin.setPreferredSize(new Dimension(panelAllTermin.getWidth(), i * 160));
+            panelAnstTermin.setPreferredSize(new Dimension(panelAnstTermin.getWidth(), i * 160));
         }
         scrollPaneAnstTermin.revalidate();
         panelAnstTermin.revalidate();
         panelAnstTermin.repaint();
+    }
+    
+    public void drawNoten(javax.swing.JPanel contentpanel, javax.swing.JScrollPane scrollpane, Halbjahr semester){
+        int height = 100;
+        ArrayList<NotenPanel> panels = new ArrayList();
+        if (semester != null) {
+            for (int j = 0; j < semester.getAnzahlFach(); j++) {
+                Fach fach = semester.getFach(j);
+                NotenPanel panel = new NotenPanel();
+                panel.setFach(fach.getName());
+                int note = 0, k;
+                for (k = 0; k < fach.getAnzahlKlausur(); k++) {
+                    note = note + fach.getKlausur(k).getNote();
+                }
+                //TODO: Berechnung stimmt nicht wenn noch nicht alle noten feststehen
+                panel.setNoteKA(note / k);
+                panels.add(panel);
+            }
+
+            Collections.sort(panels);
+            contentpanel.removeAll();
+            for (int i = 0; i < panels.size(); i++) {
+                NotenPanel panel = panels.get(i);
+                panel.setBounds(0, i * (height+1), panelAnstTermin.getWidth(), height);
+                contentpanel.add(panel);
+                contentpanel.setPreferredSize(new Dimension(contentpanel.getWidth(), i * (height+1)));
+            }
+            scrollpane.revalidate();
+            contentpanel.revalidate();
+            contentpanel.repaint();
+        }
     }
 
     /**
@@ -258,26 +298,22 @@ public class GUI extends javax.swing.JFrame {
         paneNotenuebersicht = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         jTabbedPane3 = new javax.swing.JTabbedPane();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        lblFachNoteJ11 = new javax.swing.JLabel();
-        lblKlausurNoteJ11 = new javax.swing.JLabel();
-        lblZeugnisNoteJ11 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jPanel4 = new javax.swing.JPanel();
+        notenj11ScrollPane = new javax.swing.JScrollPane();
+        notenj11Panel = new javax.swing.JPanel();
+        notenj12ScrollPane = new javax.swing.JScrollPane();
+        notenj12Panel = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         lblFachNoteJ12 = new javax.swing.JLabel();
         lblFachKlausurJ12 = new javax.swing.JLabel();
         lblZeugnisNoteJ12 = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jPanel8 = new javax.swing.JPanel();
+        notenj21ScrollPane = new javax.swing.JScrollPane();
+        notenj21Panel = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         lblFachNoteJ21 = new javax.swing.JLabel();
         lblKlausurNoteJ21 = new javax.swing.JLabel();
         lblZeugnisNoteJ21 = new javax.swing.JLabel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jPanel10 = new javax.swing.JPanel();
+        notenj22ScrollPane = new javax.swing.JScrollPane();
+        notenj22Panel = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         lblFachNoteJ22 = new javax.swing.JLabel();
         lblKlausurNoteJ22 = new javax.swing.JLabel();
@@ -1022,8 +1058,6 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel1.setText("Note");
 
-        txfNote.setEditable(false);
-
         btnBearbeitenTermin.setText("Bearbeitung Speichern");
         btnBearbeitenTermin.setEnabled(false);
 
@@ -1154,68 +1188,32 @@ public class GUI extends javax.swing.JFrame {
         jTabbedPane3.setMinimumSize(new java.awt.Dimension(115, 66));
         jTabbedPane3.setPreferredSize(new java.awt.Dimension(350, 533));
 
-        jScrollPane4.setBorder(null);
-        jScrollPane4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        jScrollPane4.setPreferredSize(new java.awt.Dimension(345, 505));
+        notenj11ScrollPane.setBorder(null);
+        notenj11ScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        notenj11ScrollPane.setPreferredSize(new java.awt.Dimension(345, 505));
 
-        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        notenj11Panel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel3.setEnabled(false);
-        jPanel3.setPreferredSize(new java.awt.Dimension(285, 135));
-
-        lblFachNoteJ11.setText("Fach:");
-
-        lblKlausurNoteJ11.setText("Klausurnoten:");
-
-        lblZeugnisNoteJ11.setText("Zeugnisnote:");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblFachNoteJ11)
-                    .addComponent(lblKlausurNoteJ11)
-                    .addComponent(lblZeugnisNoteJ11))
-                .addContainerGap(205, Short.MAX_VALUE))
+        javax.swing.GroupLayout notenj11PanelLayout = new javax.swing.GroupLayout(notenj11Panel);
+        notenj11Panel.setLayout(notenj11PanelLayout);
+        notenj11PanelLayout.setHorizontalGroup(
+            notenj11PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 322, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblFachNoteJ11)
-                .addGap(18, 18, 18)
-                .addComponent(lblKlausurNoteJ11)
-                .addGap(18, 18, 18)
-                .addComponent(lblZeugnisNoteJ11)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        notenj11PanelLayout.setVerticalGroup(
+            notenj11PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 569, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 462, Short.MAX_VALUE))
-        );
+        notenj11ScrollPane.setViewportView(notenj11Panel);
 
-        jScrollPane4.setViewportView(jPanel2);
+        jTabbedPane3.addTab("J1.1", notenj11ScrollPane);
 
-        jTabbedPane3.addTab("J1.1", jScrollPane4);
+        notenj12ScrollPane.setBorder(null);
+        notenj12ScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        notenj12ScrollPane.setPreferredSize(new java.awt.Dimension(345, 505));
 
-        jScrollPane5.setBorder(null);
-        jScrollPane5.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        jScrollPane5.setPreferredSize(new java.awt.Dimension(345, 505));
-
-        jPanel4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        notenj12Panel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel5.setPreferredSize(new java.awt.Dimension(285, 135));
@@ -1250,29 +1248,29 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout notenj12PanelLayout = new javax.swing.GroupLayout(notenj12Panel);
+        notenj12Panel.setLayout(notenj12PanelLayout);
+        notenj12PanelLayout.setHorizontalGroup(
+            notenj12PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        notenj12PanelLayout.setVerticalGroup(
+            notenj12PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(notenj12PanelLayout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 462, Short.MAX_VALUE))
         );
 
-        jScrollPane5.setViewportView(jPanel4);
+        notenj12ScrollPane.setViewportView(notenj12Panel);
 
-        jTabbedPane3.addTab("J1.2", jScrollPane5);
+        jTabbedPane3.addTab("J1.2", notenj12ScrollPane);
 
-        jScrollPane6.setBorder(null);
-        jScrollPane6.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        jScrollPane6.setPreferredSize(new java.awt.Dimension(345, 505));
+        notenj21ScrollPane.setBorder(null);
+        notenj21ScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        notenj21ScrollPane.setPreferredSize(new java.awt.Dimension(345, 505));
 
-        jPanel8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel8.setPreferredSize(new java.awt.Dimension(328, 461));
+        notenj21Panel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        notenj21Panel.setPreferredSize(new java.awt.Dimension(328, 461));
 
         jPanel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel9.setPreferredSize(new java.awt.Dimension(285, 135));
@@ -1307,28 +1305,28 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout notenj21PanelLayout = new javax.swing.GroupLayout(notenj21Panel);
+        notenj21Panel.setLayout(notenj21PanelLayout);
+        notenj21PanelLayout.setHorizontalGroup(
+            notenj21PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+        notenj21PanelLayout.setVerticalGroup(
+            notenj21PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(notenj21PanelLayout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 442, Short.MAX_VALUE))
+                .addGap(0, 452, Short.MAX_VALUE))
         );
 
-        jScrollPane6.setViewportView(jPanel8);
+        notenj21ScrollPane.setViewportView(notenj21Panel);
 
-        jTabbedPane3.addTab("J2.1", jScrollPane6);
+        jTabbedPane3.addTab("J2.1", notenj21ScrollPane);
 
-        jScrollPane7.setBorder(null);
-        jScrollPane7.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        jScrollPane7.setPreferredSize(new java.awt.Dimension(345, 505));
+        notenj22ScrollPane.setBorder(null);
+        notenj22ScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        notenj22ScrollPane.setPreferredSize(new java.awt.Dimension(345, 505));
 
-        jPanel10.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        notenj22Panel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jPanel11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel11.setPreferredSize(new java.awt.Dimension(285, 135));
@@ -1363,22 +1361,22 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout notenj22PanelLayout = new javax.swing.GroupLayout(notenj22Panel);
+        notenj22Panel.setLayout(notenj22PanelLayout);
+        notenj22PanelLayout.setHorizontalGroup(
+            notenj22PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
         );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
+        notenj22PanelLayout.setVerticalGroup(
+            notenj22PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(notenj22PanelLayout.createSequentialGroup()
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 462, Short.MAX_VALUE))
         );
 
-        jScrollPane7.setViewportView(jPanel10);
+        notenj22ScrollPane.setViewportView(notenj22Panel);
 
-        jTabbedPane3.addTab("J2.2", jScrollPane7);
+        jTabbedPane3.addTab("J2.2", notenj22ScrollPane);
 
         jLabel8.setText("Fach:");
 
@@ -1694,12 +1692,15 @@ public class GUI extends javax.swing.JFrame {
     private void btnHinzufuegenTerminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHinzufuegenTerminActionPerformed
         Klausur klausur = new Klausur((Date) spinnerDatum.getValue());
         klausur.setNotiz(txaNotiz.getText());
+        if(!txfNote.getText().isEmpty())
+            klausur.setNote(Integer.parseInt(txfNote.getText()));
         //TODO Error handling
         Fach fach = (Fach) cbFach.getSelectedItem();
         fach.addKlausur(klausur);
         
         drawAlleTermine();
         drawAnstTermine();
+        refreshNoten();
     }//GEN-LAST:event_btnHinzufuegenTerminActionPerformed
 
     private void btnBearbeitenFachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBearbeitenFachActionPerformed
@@ -1848,22 +1849,13 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane3;
@@ -1871,7 +1863,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblDatum;
     private javax.swing.JLabel lblFach;
     private javax.swing.JLabel lblFachKlausurJ12;
-    private javax.swing.JLabel lblFachNoteJ11;
     private javax.swing.JLabel lblFachNoteJ12;
     private javax.swing.JLabel lblFachNoteJ21;
     private javax.swing.JLabel lblFachNoteJ22;
@@ -1902,7 +1893,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblJ2_2Wann1;
     private javax.swing.JLabel lblJahrgangstufe;
     private javax.swing.JLabel lblKlammerbar;
-    private javax.swing.JLabel lblKlausurNoteJ11;
     private javax.swing.JLabel lblKlausurNoteJ21;
     private javax.swing.JLabel lblKlausurNoteJ22;
     private javax.swing.JLabel lblLehrerSet;
@@ -1913,7 +1903,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblTitelFach;
     private javax.swing.JLabel lblTitelTermin;
     private javax.swing.JLabel lblWoche;
-    private javax.swing.JLabel lblZeugnisNoteJ11;
     private javax.swing.JLabel lblZeugnisNoteJ12;
     private javax.swing.JLabel lblZeugnisNoteJ21;
     private javax.swing.JLabel lblZeugnisNoteJ22;
@@ -1922,6 +1911,14 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTabbedPane linkerPane;
     private javax.swing.JSeparator mitteFachSeparator;
     private javax.swing.JSeparator mitteTerminSeparator;
+    private javax.swing.JPanel notenj11Panel;
+    private javax.swing.JScrollPane notenj11ScrollPane;
+    private javax.swing.JPanel notenj12Panel;
+    private javax.swing.JScrollPane notenj12ScrollPane;
+    private javax.swing.JPanel notenj21Panel;
+    private javax.swing.JScrollPane notenj21ScrollPane;
+    private javax.swing.JPanel notenj22Panel;
+    private javax.swing.JScrollPane notenj22ScrollPane;
     private javax.swing.JScrollPane notizScrollPane;
     private javax.swing.JPanel paneFach;
     private javax.swing.JPanel paneFachJ1_1_1;

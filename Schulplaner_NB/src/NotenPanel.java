@@ -15,22 +15,31 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class NotenPanel extends JPanel{
+public class NotenPanel extends JPanel implements Comparable<NotenPanel>{
     
     javax.swing.GroupLayout layout;
     JLabel lblFach;
+    String fach;
     JLabel lblNoteKA;
     JLabel lblNoteZeugnis;
     
-    public void setNoteZeugnis(String note){
+    public String getFach(){
+        return fach;
+    }
+    public void setNoteZeugnis(int note){
         lblNoteZeugnis.setText("Zeugnisnote: " + note);
+        if(note==-1)
+            lblNoteKA.setText("Klausurennote: N/A");
     }
     
-    public void setNoteKA(String note){
+    public void setNoteKA(int note){
         lblNoteKA.setText("Klausurennote: " + note);
+        if(note==-1)
+            lblNoteKA.setText("Klausurennote: N/A");
     }
     
     public void setFach(String fach){
+        this.fach = fach;
         lblFach.setText(fach);
     }
     
@@ -64,5 +73,10 @@ public class NotenPanel extends JPanel{
                 .addComponent(lblNoteZeugnis)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+    }
+    
+    @Override
+    public int compareTo(NotenPanel panel) {
+        return this.fach.compareTo(panel.getFach());
     }
 }
