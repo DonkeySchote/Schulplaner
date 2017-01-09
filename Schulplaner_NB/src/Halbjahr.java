@@ -23,6 +23,11 @@ public class Halbjahr implements Serializable {
         return faecher.get(fachid);
     }
 
+    public Fach getFach() {
+        Fach tempFach = new Fach();
+        return tempFach;
+    }
+
     public Fach getFachByName(String name) {
         int j = -1;
         for (int i = 0; i < faecher.size(); i++) {
@@ -46,9 +51,9 @@ public class Halbjahr implements Serializable {
 
     public int rechneHalbjahrPunkte() {
         int summe = 0;
-        
+
         for (int i = 0; i < faecher.size(); i++) {
-            summe =+ faecher.get(i).getZeugnisnote();
+            summe = +faecher.get(i).getZeugnisnote();
         }
         return summe;
     }

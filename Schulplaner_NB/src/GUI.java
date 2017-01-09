@@ -1,24 +1,37 @@
+
+import java.io.FileNotFoundException;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author donkeyschote
  */
 public class GUI extends javax.swing.JFrame {
 
+    Planer planer;
+    Speicher speicher;
+
     /**
      * Creates new form Main
      */
     public GUI() {
         initComponents();
-       
+        try {
+            planer = speicher.ladePlaner();
+        } catch (FileNotFoundException e) {
+            planer = new Planer();
+
+            for (int i = 0; i < 4; i++) {
+                planer.setHalbjahr(planer.getHalbjahr(), i);
+            }
+        }
     }
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -729,6 +742,11 @@ public class GUI extends javax.swing.JFrame {
         btnBearbeitenFach.setText("Bearbeitung Speichern");
 
         btnHinzufuegenFach.setText("Fach Hinzufügen");
+        btnHinzufuegenFach.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHinzufuegenFachActionPerformed(evt);
+            }
+        });
 
         btnLoeschenFach.setText("Fach Löschen");
         btnLoeschenFach.addActionListener(new java.awt.event.ActionListener() {
@@ -896,7 +914,7 @@ public class GUI extends javax.swing.JFrame {
         paneAnstTermin1Layout.setVerticalGroup(
             paneAnstTermin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paneAnstTermin1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addGroup(paneAnstTermin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAnstDatum1)
                     .addComponent(lblAnstTitel1, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -904,7 +922,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(paneAnstTermin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAnstRaum1)
                     .addComponent(lblAnstFach1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(lblAnstNote1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(anstNotizScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1003,7 +1021,7 @@ public class GUI extends javax.swing.JFrame {
         paneAllTermin1Layout.setVerticalGroup(
             paneAllTermin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paneAllTermin1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addGroup(paneAllTermin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAllDatum1)
                     .addComponent(lblAllTitel1, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -1011,7 +1029,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(paneAllTermin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAllRaum1)
                     .addComponent(lblAllFach1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(lblAllNote1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(allNotizScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1223,7 +1241,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblKlausurNoteJ11)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ11)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -1279,7 +1297,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblFachKlausurJ12)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ12)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -1336,7 +1354,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblKlausurNoteJ21)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ21)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -1392,7 +1410,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblKlausurNoteJ22)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ22)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
@@ -1479,7 +1497,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblFachUnterpunktet)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(lblHalbjahrUnterpunktet)
                 .addGap(18, 18, 18)
                 .addComponent(lblPunktzahlUnterpunktet)
@@ -1492,7 +1510,7 @@ public class GUI extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -1623,6 +1641,37 @@ public class GUI extends javax.swing.JFrame {
     private void txfDurchschnittActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfDurchschnittActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txfDurchschnittActionPerformed
+
+    private void btnHinzufuegenFachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHinzufuegenFachActionPerformed
+        String tempName, tempLehrer;
+        int tempHalbjahrNummer;
+        Halbjahr tempHalbjahr;
+
+        tempName = txfFach.getText();
+        tempLehrer = txfLehrer.getText();
+        if (rdbtnJ1.isSelected()) {
+            if (rdbtnHalbjahr1.isSelected()) {
+                tempHalbjahrNummer = 1;
+                tempHalbjahr = planer.getHalbjahr(tempHalbjahrNummer);
+            } else if (rdbtnHalbjahr2.isSelected()) {
+                tempHalbjahrNummer = 2;
+                tempHalbjahr = planer.getHalbjahr(tempHalbjahrNummer);
+            }
+        } else if (rdbtnJ1.isSelected()) {
+            if (rdbtnHalbjahr1.isSelected()) {
+                tempHalbjahrNummer = 3;
+                tempHalbjahr = planer.getHalbjahr(tempHalbjahrNummer);
+            } else if (rdbtnHalbjahr2.isSelected()) {
+                tempHalbjahrNummer = 4;
+                tempHalbjahr = planer.getHalbjahr(tempHalbjahrNummer);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "HalbJahr und Kurstufe auswählen");
+        }
+        
+        //tempHalbjahr.
+
+    }//GEN-LAST:event_btnHinzufuegenFachActionPerformed
 
     /**
      * @param args the command line arguments
