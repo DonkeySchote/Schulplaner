@@ -30,10 +30,11 @@ public class Speicher {
         InputStream fis = null;
         Planer planer = null;
         String path = getSystemApplicationDirectory() + File.separator + ordnername + File.separator + dateiname;
-        if(new File(path).exists())
+        if(!(new File(path).exists()))
             throw new FileNotFoundException("Konnte keine Daten unter: " + path + " finden");
         try {
-            fis = new FileInputStream("/home/donkeyschote/fos.ser");
+            //TODO: hardgecodete pfade entfernen
+            fis = new FileInputStream(path);
             ObjectInputStream o = new ObjectInputStream(fis);
             planer = (Planer) o.readObject();
             System.out.println("loaded");
@@ -57,9 +58,9 @@ public class Speicher {
     
     public static void speicherePlaner(Planer planer) {
         OutputStream fos = null;
-        
+        String path = getSystemApplicationDirectory() + File.separator + ordnername + File.separator + dateiname;
         try{
-            fos = new FileOutputStream("/home/donkeyschote/fos.ser");
+            fos = new FileOutputStream(path);
             ObjectOutputStream o = new ObjectOutputStream(fos);
             o.writeObject(planer);
             System.out.println("saved");
