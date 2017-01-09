@@ -1193,6 +1193,41 @@
                       <Component id="mitteTerminSeparator" min="-2" pref="2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblTerminName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblFach" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblDatum" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblRaum" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNotiz" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblHalbjahrTerminDingens" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="notizScrollPane" alignment="0" pref="260" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="txfName" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="txfRaum" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="txfNote" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="cbFach" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="spinnerDatum" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="cbHalbjahre" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
@@ -1201,41 +1236,13 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblTerminName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblFach" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblDatum" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblRaum" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblNotiz" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblAbi" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="notizScrollPane" alignment="0" pref="371" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="txfName" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="txfRaum" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="txfNote" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="cBoxAbi" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="cbFach" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="spinnerDatum" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          </Group>
+                                          <Component id="btnHinzufuegenTermin" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnLoeschenTermin" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnBearbeitenTermin" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnHinzufuegenTermin" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnLoeschenTermin" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnBearbeitenTermin" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="326" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -1279,18 +1286,18 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblAbi" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cBoxAbi" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblHalbjahrTerminDingens" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbHalbjahre" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                       <Component id="btnBearbeitenTermin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnHinzufuegenTermin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnLoeschenTermin" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="103" max="32767" attributes="0"/>
+                      <EmptySpace pref="105" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="linkerPane" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="linkerPane" alignment="0" pref="618" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -1468,19 +1475,10 @@
                 <Property name="editable" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblAbi">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Abi ?"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="cBoxAbi">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Abit&#xfc;r Pr&#xfc;fung"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JButton" name="btnBearbeitenTermin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Bearbeitung Speichern"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnHinzufuegenTermin">
@@ -1494,12 +1492,7 @@
             <Component class="javax.swing.JComboBox" name="cbFach">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
               <Events>
@@ -1510,6 +1503,30 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Termin L&#xf6;schen"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHalbjahrTerminDingens">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Halbjahr"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cbHalbjahre">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="5">
+                    <StringItem index="0" value="J1.1"/>
+                    <StringItem index="1" value="J1.2"/>
+                    <StringItem index="2" value="J2.1"/>
+                    <StringItem index="3" value="J2.2"/>
+                    <StringItem index="4" value="Abitur"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbHalbjahreActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
