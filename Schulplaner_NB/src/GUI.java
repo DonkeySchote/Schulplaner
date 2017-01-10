@@ -1041,7 +1041,11 @@ public class GUI extends javax.swing.JFrame {
         jLabel1.setText("Note");
 
         btnBearbeitenTermin.setText("Bearbeitung Speichern");
-        btnBearbeitenTermin.setEnabled(false);
+        btnBearbeitenTermin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBearbeitenTerminActionPerformed(evt);
+            }
+        });
 
         btnHinzufuegenTermin.setText("Termin hinzufügen");
         btnHinzufuegenTermin.addActionListener(new java.awt.event.ActionListener() {
@@ -1737,6 +1741,29 @@ public class GUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Kein Terminname angegeben");
         }
     }//GEN-LAST:event_btnLoeschenTerminActionPerformed
+
+    private void btnBearbeitenTerminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBearbeitenTerminActionPerformed
+        if (!txfName.getText().isEmpty()) {
+            Fach fach = (Fach) cbFach.getSelectedItem();
+            for (int i = 0; i < fach.getAnzahlKlausur(); i++) {
+                if(fach.getKlausur(i).getName().equals(txfName.getText())){
+                    Klausur klausur = fach.getKlausur(i);
+                    klausur.setNotiz(txaNotiz.getText());
+                    if (!txfNote.getText().isEmpty()) {
+                        klausur.setNote(Integer.parseInt(txfNote.getText()));
+                    }
+                    klausur.setTermin((Date) spinnerDatum.getValue());
+                    klausur.setName(txfName.getText());
+                }
+            }
+                drawAlleTermine();
+                drawAnstTermine();
+                refreshNoten();
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Kein Terminname angegeben");
+        }
+    }//GEN-LAST:event_btnBearbeitenTerminActionPerformed
 
     /**
      * @param args the command line arguments
