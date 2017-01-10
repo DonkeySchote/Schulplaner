@@ -75,7 +75,63 @@ public class Fach implements Serializable{
     }
     
     public String getUnterrichtszeiten(){
-        return "notyetimplemented";
+        String montag = "";
+        String dienstag = "";
+        String mittwoch = "";
+        String donnerstag = "";
+        String freitag = "";
+        String woche ="";
+        for (Integer stunde : stunden) {
+            if((int)stunde/12==0){
+                if(!montag.isEmpty())
+                    montag += ", ";
+                montag += String.valueOf(stunde%12+1);
+            }
+            else if((int)stunde/12==1){
+                if(!dienstag.isEmpty())
+                    dienstag += ", ";
+                dienstag += String.valueOf(stunde%12+1);
+            }
+            else if((int)stunde/12==0){
+                if(!mittwoch.isEmpty())
+                    mittwoch += ", ";
+                mittwoch += String.valueOf(stunde%12+1);
+            }
+            else if((int)stunde/12==0){
+                if(!donnerstag.isEmpty())
+                    donnerstag += ", ";
+                donnerstag += String.valueOf(stunde%12+1);
+            }
+            else if((int)stunde/12==0){
+                if(!freitag.isEmpty())
+                    freitag += ", ";
+                freitag += String.valueOf(stunde%12+1);
+            }
+        }
+        if(!montag.isEmpty()){
+            woche += "Mo: " + montag;
+        }
+        if(!dienstag.isEmpty()){
+            if(!woche.isEmpty())
+                woche += ";";
+            woche += "Di: " + dienstag;
+        }
+        if(!mittwoch.isEmpty()){
+            if(!woche.isEmpty())
+                woche += ";";
+            woche += "Di: " + dienstag;
+        }
+        if(!donnerstag.isEmpty()){
+            if(!woche.isEmpty())
+                woche += ";";
+            woche += "Di: " + dienstag;
+        }
+        if(!freitag.isEmpty()){
+            if(!woche.isEmpty())
+                woche += ";";
+            woche += "Di: " + dienstag;
+        }
+        return woche;
     }
     
     public String getKlausurnoten(){
