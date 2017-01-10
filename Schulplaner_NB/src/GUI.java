@@ -56,7 +56,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     public void speichern() {
-        //Speicher.speicherePlaner(planer);
+        Speicher.speicherePlaner(planer);
     }
 
     public void refreshAll() {
