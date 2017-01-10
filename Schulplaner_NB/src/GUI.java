@@ -437,6 +437,11 @@ public class GUI extends javax.swing.JFrame {
         spinnerStunde.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
 
         btnStundeErstellen.setText("Stunde erstellen");
+        btnStundeErstellen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStundeErstellenActionPerformed(evt);
+            }
+        });
 
         btnStundeLoeschen.setText("Stunde löschen");
 
@@ -449,7 +454,6 @@ public class GUI extends javax.swing.JFrame {
         paneStundenplanLayout.setHorizontalGroup(
             paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 838, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 916, Short.MAX_VALUE)
             .addGroup(paneStundenplanLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -460,7 +464,7 @@ public class GUI extends javax.swing.JFrame {
                                 .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(paneStundenplanLayout.createSequentialGroup()
                                         .addGap(67, 67, 67)
-                                        .addComponent(spinnerStunde, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE))
+                                        .addComponent(spinnerStunde))
                                     .addGroup(paneStundenplanLayout.createSequentialGroup()
                                         .addGap(35, 35, 35)
                                         .addComponent(cBoxTag, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -914,7 +918,7 @@ public class GUI extends javax.swing.JFrame {
                                                 .addComponent(txfRaum)))))
                                 .addComponent(btnHinzufuegenFach))
                             .addGap(24, 24, 24))))
-                .addGap(0, 223, Short.MAX_VALUE))
+                .addGap(0, 172, Short.MAX_VALUE))
         );
         paneFachLayout.setVerticalGroup(
             paneFachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1100,7 +1104,7 @@ public class GUI extends javax.swing.JFrame {
                                     .addComponent(txfNote, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(notizScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cbHalbjahre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 203, Short.MAX_VALUE))))
+                                .addGap(0, 152, Short.MAX_VALUE))))
                     .addGroup(paneTermineLayout.createSequentialGroup()
                         .addGroup(paneTermineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(paneTermineLayout.createSequentialGroup()
@@ -1221,7 +1225,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblFachKlausurJ12)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ12)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout notenj12PanelLayout = new javax.swing.GroupLayout(notenj12Panel);
@@ -1278,7 +1282,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblKlausurNoteJ21)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ21)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout notenj21PanelLayout = new javax.swing.GroupLayout(notenj21Panel);
@@ -1334,7 +1338,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblKlausurNoteJ22)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ22)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout notenj22PanelLayout = new javax.swing.GroupLayout(notenj22Panel);
@@ -1422,7 +1426,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(jLabel10)
                             .addComponent(jLabel14))
-                        .addGap(2, 128, Short.MAX_VALUE)
+                        .addGap(2, 152, Short.MAX_VALUE)
                         .addGroup(paneNotenuebersichtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jTextField1)
                             .addComponent(txfZeugnis, javax.swing.GroupLayout.Alignment.LEADING)
@@ -1496,10 +1500,7 @@ public class GUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 936, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1763,6 +1764,10 @@ public class GUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Kein Terminname angegeben");
         }
     }//GEN-LAST:event_btnBearbeitenTerminActionPerformed
+
+    private void btnStundeErstellenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStundeErstellenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnStundeErstellenActionPerformed
 
     /**
      * @param args the command line arguments
