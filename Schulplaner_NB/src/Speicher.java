@@ -60,6 +60,10 @@ public class Speicher {
         OutputStream fos = null;
         String path = getSystemApplicationDirectory() + File.separator + ordnername + File.separator + dateiname;
         try{
+            File folder  = new File(getSystemApplicationDirectory() + File.separator + ordnername);
+            if(!folder.exists()){
+                folder.mkdir();
+            }
             fos = new FileOutputStream(path);
             ObjectOutputStream o = new ObjectOutputStream(fos);
             o.writeObject(planer);
