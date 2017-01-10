@@ -105,16 +105,16 @@ public class GUI extends javax.swing.JFrame {
 
     public void refreshFaecher() {
         drawFaecher(panelJ1_1, scrollPaneJ1_1, planer.getHalbjahr(0));
-        drawNoten(panelJ1_2, scrollPaneJ1_2, planer.getHalbjahr(1));
-        drawNoten(panelJ2_1, scrollPaneJ2_1, planer.getHalbjahr(2));
-        drawNoten(panelJ2_2, scrollPaneJ2_2, planer.getHalbjahr(3));
+        drawFaecher(panelJ1_2, scrollPaneJ1_2, planer.getHalbjahr(1));
+        drawFaecher(panelJ2_1, scrollPaneJ2_1, planer.getHalbjahr(2));
+        drawFaecher(panelJ2_2, scrollPaneJ2_2, planer.getHalbjahr(3));
     }
 
     public void refreshNoten() {
         drawNoten(notenj11Panel, notenj11ScrollPane, planer.getHalbjahr(0));
-        drawFaecher(notenj12Panel, notenj12ScrollPane, planer.getHalbjahr(1));
-        drawFaecher(notenj21Panel, notenj21ScrollPane, planer.getHalbjahr(2));
-        drawFaecher(notenj22Panel, notenj22ScrollPane, planer.getHalbjahr(3));
+        drawNoten(notenj12Panel, notenj12ScrollPane, planer.getHalbjahr(1));
+        drawNoten(notenj21Panel, notenj21ScrollPane, planer.getHalbjahr(2));
+        drawNoten(notenj22Panel, notenj22ScrollPane, planer.getHalbjahr(3));
     }
 
     public void drawAlleTermine() {
@@ -240,7 +240,7 @@ public class GUI extends javax.swing.JFrame {
         if (semester != null) {
             for (int j = 0; j < semester.getAnzahlFach(); j++) {
                 Fach fach = semester.getFach(j);
-                System.out.println(fach.getName());
+                //System.out.println(fach.getName());
                 FachPanel panel = new FachPanel();
                 panel.setFach(fach.getName());
                 String noteKA = "";

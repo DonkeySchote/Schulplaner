@@ -114,17 +114,17 @@ public class Fach implements Serializable{
         if(!mittwoch.isEmpty()){
             if(!woche.isEmpty())
                 woche += ";";
-            woche += "Mi: " + dienstag;
+            woche += "Mi: " + mittwoch;
         }
         if(!donnerstag.isEmpty()){
             if(!woche.isEmpty())
                 woche += ";";
-            woche += "Do: " + dienstag;
+            woche += "Do: " + donnerstag;
         }
         if(!freitag.isEmpty()){
             if(!woche.isEmpty())
                 woche += ";";
-            woche += "Fr: " + dienstag;
+            woche += "Fr: " + freitag;
         }
         return woche;
     }
