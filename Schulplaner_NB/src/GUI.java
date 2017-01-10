@@ -1803,7 +1803,7 @@ public class GUI extends javax.swing.JFrame {
 
 
     private void btnSucheFachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSucheFachActionPerformed
-        String fachname = "";
+        String fachname = cBoxFachNote.getSelectedItem().toString();
         if (planer.getHalbjahr(cBoxHalbjahr.getSelectedIndex()).getFachByName(fachname).getZeugnisnote() != -1) {
             txfZeugnis.setText(Integer.toString(planer.getHalbjahr(cBoxHalbjahr.getSelectedIndex()).getFachByName(fachname).getZeugnisnote()));
         }
