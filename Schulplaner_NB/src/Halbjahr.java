@@ -75,7 +75,10 @@ public class Halbjahr implements Serializable {
         int summe = 0;
 
         for (int i = 0; i < faecher.size(); i++) {
-            summe = +faecher.get(i).getZeugnisnote();
+            if(faecher.get(i).getZeugnisnote() != -1)
+            {
+                summe += faecher.get(i).getZeugnisnote();
+            }
         }
         return summe;
     }

@@ -39,7 +39,7 @@ public class Planer implements Serializable {
         double summe = 0;
 
         for (int i = 0; i < halbjahren[halbjahr].getFach(fachid).getAnzahlKlausur(); i++) {
-            summe =+ halbjahren[halbjahr].getFach(fachid).getKlausur(i).getNote();
+            summe += halbjahren[halbjahr].getFach(fachid).getKlausur(i).getNote();
         }
         summe = summe / halbjahren[halbjahr].getFach(fachid).getAnzahlKlausur();
         return summe;
@@ -49,10 +49,10 @@ public class Planer implements Serializable {
         int summe = 0;
         
         for (int i = 0; i < halbjahren.length; i++) {
-            summe =+ halbjahren[i].rechneHalbjahrPunkte();
+            summe += halbjahren[i].rechneHalbjahrPunkte();
         }
         
-        summe =+ abi.rechnePuknt();
+        summe += abi.rechnePuknt();
         
         return summe;
     }

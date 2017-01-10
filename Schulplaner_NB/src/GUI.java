@@ -1595,6 +1595,7 @@ public class GUI extends javax.swing.JFrame {
                 tempFach.setRaum(txfRaum.getText());
                 if (txfZeugnisSet.getText().equals("") == false) {
                     tempFach.setZeugnisnote(Integer.valueOf(txfZeugnisSet.getText()));
+                    txfErziehlt.setText(Integer.toString(planer.rechneGesamtPunkte()));
                 }
                 tempHalbjahr.addFach(tempFach);
             }
@@ -1605,6 +1606,7 @@ public class GUI extends javax.swing.JFrame {
             tempFach.setRaum(txfRaum.getText());
             if (txfZeugnisSet.getText().equals("") == false) {
                 tempFach.setZeugnisnote(Integer.valueOf(txfZeugnisSet.getText()));
+                txfErziehlt.setText(Integer.toString(planer.rechneGesamtPunkte()));
             }
             tempHalbjahr.addFach(tempFach);
         }
