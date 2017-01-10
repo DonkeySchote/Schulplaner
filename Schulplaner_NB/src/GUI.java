@@ -1546,6 +1546,8 @@ public class GUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Dieses Fach gibt es nicht");
             }
         }
+        txfErziehlt.setText(Integer.toString(planer.rechneGesamtPunkte()));
+        jTextField1.setText(Integer.toString(300-planer.rechneGesamtPunkte()));
         refreshAll();
     }//GEN-LAST:event_btnLoeschenFachActionPerformed
 
@@ -1595,7 +1597,6 @@ public class GUI extends javax.swing.JFrame {
                 tempFach.setRaum(txfRaum.getText());
                 if (txfZeugnisSet.getText().equals("") == false) {
                     tempFach.setZeugnisnote(Integer.valueOf(txfZeugnisSet.getText()));
-                    txfErziehlt.setText(Integer.toString(planer.rechneGesamtPunkte()));
                 }
                 tempHalbjahr.addFach(tempFach);
             }
@@ -1606,10 +1607,11 @@ public class GUI extends javax.swing.JFrame {
             tempFach.setRaum(txfRaum.getText());
             if (txfZeugnisSet.getText().equals("") == false) {
                 tempFach.setZeugnisnote(Integer.valueOf(txfZeugnisSet.getText()));
-                txfErziehlt.setText(Integer.toString(planer.rechneGesamtPunkte()));
             }
             tempHalbjahr.addFach(tempFach);
         }
+        txfErziehlt.setText(Integer.toString(planer.rechneGesamtPunkte()));
+        jTextField1.setText(Integer.toString(300-planer.rechneGesamtPunkte()));
         refreshAll();
     }//GEN-LAST:event_btnHinzufuegenFachActionPerformed
 
@@ -1687,7 +1689,7 @@ public class GUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Dieses Fach gibt es nicht");
             }
         } else {
-            tempFach = tempHalbjahr.getFachByName(tempName);
+            tempFach = tempHalbjahr.getFachByName(tempName);  
             tempFach.setLehrer(tempLehrer);
             tempFach.setKlammerbar(cbKlamemrbar.isSelected());
             tempFach.setRaum(txfRaum.getText());
@@ -1696,7 +1698,8 @@ public class GUI extends javax.swing.JFrame {
             }
             //tempHalbjahr.addFach(tempFach);
         }
-
+        txfErziehlt.setText(Integer.toString(planer.rechneGesamtPunkte()));
+        jTextField1.setText(Integer.toString(300-planer.rechneGesamtPunkte()));
         refreshAll();
     }//GEN-LAST:event_btnBearbeitenFachActionPerformed
 
