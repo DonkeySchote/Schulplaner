@@ -287,34 +287,40 @@
                                               <Component id="lblHalbjahrSet" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="lblFachSet" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="lblKlammerbar" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblRaum" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Component id="txfFach" alignment="1" min="-2" pref="70" max="-2" attributes="0"/>
-                                                      <Component id="txfZeugnisSet" alignment="1" min="-2" pref="70" max="-2" attributes="0"/>
-                                                      <Component id="txfLehrer" alignment="1" min="-2" pref="70" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Component id="rdbtnHalbjahr1" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace max="32767" attributes="0"/>
-                                                      </Group>
                                                       <Group type="102" alignment="1" attributes="0">
-                                                          <Component id="rdbtnJ1" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Group type="102" alignment="0" attributes="0">
+                                                                  <Component id="rdbtnHalbjahr1" min="-2" max="-2" attributes="0"/>
+                                                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                                              </Group>
+                                                              <Group type="102" alignment="1" attributes="0">
+                                                                  <Component id="rdbtnJ1" min="-2" max="-2" attributes="0"/>
+                                                                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                                                              </Group>
+                                                          </Group>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="rdbtnJ2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="rdbtnHalbjahr2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
                                                       </Group>
-                                                  </Group>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="rdbtnJ2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="rdbtnHalbjahr2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="cbKlamemrbar" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
-                                              <Component id="cbKlamemrbar" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="txfLehrer" pref="144" max="32767" attributes="0"/>
+                                                      <Component id="txfFach" max="32767" attributes="0"/>
+                                                      <Component id="txfZeugnisSet" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="txfRaum" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
                                           </Group>
                                       </Group>
                                       <Component id="btnHinzufuegenFach" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -347,7 +353,12 @@
                           <Component id="lblZeugnisSet" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txfZeugnisSet" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblRaum" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txfRaum" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblJahrgangstufe" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="rdbtnJ1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1055,6 +1066,16 @@
                 <Property name="text" type="java.lang.String" value="ja ? "/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JTextField" name="txfRaum">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblRaum">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Raum"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="paneTermine">
@@ -1077,41 +1098,39 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblTerminName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblFach" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblDatum" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblRaum" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblNotiz" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblHalbjahrTerminDingens" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="notizScrollPane" alignment="0" pref="260" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="txfName" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="txfRaum" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="txfNote" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="cbFach" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="spinnerDatum" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          </Group>
+                                          <Component id="lblTerminName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblFach" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblDatum" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txfName" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="cbFach" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="spinnerDatum" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Component id="cbHalbjahre" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblNotiz" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblHalbjahrTerminDingens" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txfNote" min="-2" pref="161" max="-2" attributes="0"/>
+                                          <Component id="notizScrollPane" min="-2" pref="231" max="-2" attributes="0"/>
+                                          <Component id="cbHalbjahre" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="152" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                                       <Component id="lblTitelTermin" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -1151,12 +1170,7 @@
                           <Component id="lblDatum" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="spinnerDatum" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblRaum" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txfRaum" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblNotiz" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="notizScrollPane" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
@@ -1171,13 +1185,13 @@
                           <Component id="lblHalbjahrTerminDingens" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cbHalbjahre" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnBearbeitenTermin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnHinzufuegenTermin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnLoeschenTermin" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="105" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Component id="linkerPane" alignment="0" pref="618" max="32767" attributes="0"/>
               </Group>
@@ -1283,7 +1297,6 @@
             <Component class="javax.swing.JTextField" name="txfName">
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value="Termin Name"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblTerminName">
@@ -1315,16 +1328,6 @@
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                   <SpinnerModel initial="now" stepSize="5" type="date"/>
                 </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblRaum">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Raum"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txfRaum">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblNotiz">
@@ -1386,6 +1389,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Termin L&#xf6;schen"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoeschenTerminActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblHalbjahrTerminDingens">
               <Properties>

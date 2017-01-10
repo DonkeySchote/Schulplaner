@@ -56,6 +56,10 @@ public class TerminPanel extends JPanel implements Comparable<TerminPanel>{
         return datum;
     }
     
+    public void setTerminName(String name){
+        lblTermin.setText(name);
+    }
+    
     @Override
     public int compareTo(TerminPanel panel) {
         return this.datum.compareTo(panel.getDatum());

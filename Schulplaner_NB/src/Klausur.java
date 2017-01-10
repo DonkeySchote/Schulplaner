@@ -16,11 +16,20 @@ public class Klausur implements Serializable, Comparable<Klausur> {
     protected Date termin;
     protected String notiz;
     protected int note;
+    protected String name;
   
     public Klausur(Date termin) {
         this.termin = termin;
         notiz = "";
         note = -1;
+    }
+    
+    public void setName(String name){
+        this.name = name;
+    }
+    
+    public String getName(){
+        return name;
     }
     
     public Date getTermin() {
