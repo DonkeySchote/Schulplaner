@@ -77,6 +77,16 @@ public class GUI extends javax.swing.JFrame {
             }
         }
     }
+    
+    public void tabelleFuellen() {
+        Halbjahr halbjahr = planer.getHalbjahr(cBoxHalbjahrSp.getSelectedIndex());
+        for (int i = 0; i < halbjahr.getAnzahlFach(); i++) {
+            Fach fach = halbjahr.getFach(i);
+            for(Integer stunde : fach.getStunden()){
+                tableStundenplan.setValueAt(fach.getName(), stunde%12, (int)(stunde/12)+1);
+            }
+        }
+    }
 
     public void refreshFaecher() {
         drawFaecher(panelJ1_1, scrollPaneJ1_1, planer.getHalbjahr(0));
@@ -241,6 +251,8 @@ public class GUI extends javax.swing.JFrame {
             contentpanel.repaint();
         }
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -450,6 +462,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         cBoxHalbjahrSp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
+        cBoxHalbjahrSp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cBoxHalbjahrSpActionPerformed(evt);
+            }
+        });
 
         lblHaljahrSp.setText("Halbjahr:");
 
@@ -468,7 +485,7 @@ public class GUI extends javax.swing.JFrame {
                                 .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(paneStundenplanLayout.createSequentialGroup()
                                         .addGap(67, 67, 67)
-                                        .addComponent(spinnerStunde, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE))
+                                        .addComponent(spinnerStunde))
                                     .addGroup(paneStundenplanLayout.createSequentialGroup()
                                         .addGap(35, 35, 35)
                                         .addComponent(cBoxTag, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -1229,7 +1246,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblFachKlausurJ12)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ12)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout notenj12PanelLayout = new javax.swing.GroupLayout(notenj12Panel);
@@ -1286,7 +1303,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblKlausurNoteJ21)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ21)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout notenj21PanelLayout = new javax.swing.GroupLayout(notenj21Panel);
@@ -1342,7 +1359,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblKlausurNoteJ22)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ22)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout notenj22PanelLayout = new javax.swing.GroupLayout(notenj22Panel);
@@ -1861,6 +1878,7 @@ public class GUI extends javax.swing.JFrame {
         
         tempFach.setStunde(tempStunde);        
         
+        tabelleFuellen();
     }//GEN-LAST:event_btnStundeErstellenActionPerformed
 
     private void btnStundeLoeschenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStundeLoeschenActionPerformed
@@ -1901,8 +1919,12 @@ public class GUI extends javax.swing.JFrame {
             }
         }
         
-        
+        tabelleFuellen();
     }//GEN-LAST:event_btnStundeLoeschenActionPerformed
+
+    private void cBoxHalbjahrSpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBoxHalbjahrSpActionPerformed
+        tabelleFuellen();
+    }//GEN-LAST:event_cBoxHalbjahrSpActionPerformed
 
     /**
      * @param args the command line arguments
