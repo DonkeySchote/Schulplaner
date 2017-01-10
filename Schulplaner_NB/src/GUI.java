@@ -415,9 +415,9 @@ public class GUI extends javax.swing.JFrame {
         txfMoeglich = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txfAbi = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txaUnterpunktet = new javax.swing.JTextArea();
         cBoxHalbjahr = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -477,11 +477,6 @@ public class GUI extends javax.swing.JFrame {
         });
 
         cBoxHalbjahrSp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
-        cBoxHalbjahrSp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cBoxHalbjahrSpActionPerformed(evt);
-            }
-        });
 
         lblHaljahrSp.setText("Halbjahr:");
 
@@ -494,31 +489,30 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(paneStundenplanLayout.createSequentialGroup()
-                        .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(paneStundenplanLayout.createSequentialGroup()
                                 .addComponent(jLabel3)
+                                .addGap(35, 35, 35)
                                 .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(paneStundenplanLayout.createSequentialGroup()
-                                        .addGap(67, 67, 67)
-                                        .addComponent(spinnerStunde))
-                                    .addGroup(paneStundenplanLayout.createSequentialGroup()
-                                        .addGap(35, 35, 35)
-                                        .addComponent(cBoxTag, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                            .addComponent(cBoxFachSp, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
-                        .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnStundeErstellen, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                            .addComponent(btnStundeLoeschen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(cBoxTag, 0, 108, Short.MAX_VALUE)
+                                    .addComponent(spinnerStunde)))
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnStundeLoeschen, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(paneStundenplanLayout.createSequentialGroup()
+                        .addComponent(lblHaljahrSp)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cBoxHalbjahrSp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(paneStundenplanLayout.createSequentialGroup()
                         .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
                             .addGroup(paneStundenplanLayout.createSequentialGroup()
-                                .addComponent(lblHaljahrSp)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cBoxHalbjahrSp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(57, 57, 57)
+                                .addComponent(cBoxFachSp, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnStundeErstellen, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 516, Short.MAX_VALUE))
         );
         paneStundenplanLayout.setVerticalGroup(
             paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1124,12 +1118,11 @@ public class GUI extends javax.swing.JFrame {
                                     .addComponent(lblTerminName)
                                     .addComponent(lblFach)
                                     .addComponent(lblDatum))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(paneTermineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txfName)
-                                    .addComponent(cbFach, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(spinnerDatum))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(31, 31, 31)
+                                .addGroup(paneTermineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(cbFach, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(spinnerDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txfName, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(paneTermineLayout.createSequentialGroup()
                                 .addGroup(paneTermineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblNotiz)
@@ -1138,9 +1131,9 @@ public class GUI extends javax.swing.JFrame {
                                 .addGap(53, 53, 53)
                                 .addGroup(paneTermineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txfNote, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(notizScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbHalbjahre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 152, Short.MAX_VALUE))))
+                                    .addComponent(cbHalbjahre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(notizScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(paneTermineLayout.createSequentialGroup()
                         .addGroup(paneTermineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(paneTermineLayout.createSequentialGroup()
@@ -1152,7 +1145,7 @@ public class GUI extends javax.swing.JFrame {
                                     .addComponent(btnHinzufuegenTermin)
                                     .addComponent(btnLoeschenTermin)
                                     .addComponent(btnBearbeitenTermin))))
-                        .addContainerGap())))
+                        .addContainerGap(194, Short.MAX_VALUE))))
         );
         paneTermineLayout.setVerticalGroup(
             paneTermineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1261,7 +1254,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblFachKlausurJ12)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ12)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout notenj12PanelLayout = new javax.swing.GroupLayout(notenj12Panel);
@@ -1318,7 +1311,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblKlausurNoteJ21)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ21)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout notenj21PanelLayout = new javax.swing.GroupLayout(notenj21Panel);
@@ -1374,7 +1367,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblKlausurNoteJ22)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ22)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout notenj22PanelLayout = new javax.swing.GroupLayout(notenj22Panel);
@@ -1434,13 +1427,13 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel14.setText("Punkte bis zum bestandenen Abi:");
 
-        jTextField1.setEditable(false);
+        txfAbi.setEditable(false);
 
         jScrollPane3.setEnabled(false);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane3.setViewportView(jTextArea1);
+        txaUnterpunktet.setColumns(20);
+        txaUnterpunktet.setRows(5);
+        jScrollPane3.setViewportView(txaUnterpunktet);
 
         cBoxHalbjahr.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
 
@@ -1454,35 +1447,37 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(paneNotenuebersichtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneNotenuebersichtLayout.createSequentialGroup()
-                        .addGroup(paneNotenuebersichtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel14))
-                        .addGap(2, 152, Short.MAX_VALUE)
-                        .addGroup(paneNotenuebersichtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(txfZeugnis, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txfMoeglich, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txfErziehlt)
-                            .addComponent(txfDurchschnitt)
-                            .addComponent(txfKlausur, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cBoxFachNote, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSucheFach, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cBoxHalbjahr, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(78, 78, 78))
                     .addGroup(paneNotenuebersichtLayout.createSequentialGroup()
                         .addGroup(paneNotenuebersichtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(paneNotenuebersichtLayout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel11)
                             .addComponent(jLabel12))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneNotenuebersichtLayout.createSequentialGroup()
+                        .addGroup(paneNotenuebersichtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(paneNotenuebersichtLayout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(paneNotenuebersichtLayout.createSequentialGroup()
+                                .addGroup(paneNotenuebersichtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel14))
+                                .addGap(2, 152, Short.MAX_VALUE)
+                                .addGroup(paneNotenuebersichtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txfAbi)
+                                    .addComponent(txfZeugnis, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txfMoeglich, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txfErziehlt)
+                                    .addComponent(txfDurchschnitt)
+                                    .addComponent(txfKlausur, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cBoxFachNote, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnSucheFach, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cBoxHalbjahr, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(78, 78, 78))))
         );
         paneNotenuebersichtLayout.setVerticalGroup(
             paneNotenuebersichtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1521,12 +1516,12 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(paneNotenuebersichtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                    .addComponent(txfAbi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
                 .addGroup(paneNotenuebersichtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jTabbedPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
         );
 
@@ -1585,7 +1580,7 @@ public class GUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Dieses Fach gibt es nicht");
             }
         }
-        jTextArea1.setText("");
+        txaUnterpunktet.setText("");
         for (int i=0; i<4; i++)
         {
             anzahlZeugnis += planer.getHalbjahr(i).getAnzahlFach();
@@ -1593,10 +1588,10 @@ public class GUI extends javax.swing.JFrame {
             {
                 if(planer.getHalbjahr(i).getFach(j).getZeugnisnote()<5 && planer.getHalbjahr(i).getFach(j).getZeugnisnote() > -1)
                 {
-                    jTextArea1.append("Fach: " + planer.getHalbjahr(i).getFach(j).getName()+ "\n");
-                    jTextArea1.append("Halbjahr: " + Integer.toString(i+1) + "\n");
-                    jTextArea1.append(Integer.toString(planer.getHalbjahr(i).getFach(j).getZeugnisnote()) + " Punkt(e) \n");
-                    jTextArea1.append("\n");
+                    txaUnterpunktet.append("Fach: " + planer.getHalbjahr(i).getFach(j).getName()+ "\n");
+                    txaUnterpunktet.append("Halbjahr: " + Integer.toString(i+1) + "\n");
+                    txaUnterpunktet.append(Integer.toString(planer.getHalbjahr(i).getFach(j).getZeugnisnote()) + " Punkt(e) \n");
+                    txaUnterpunktet.append("\n");
                 }
             }
         }
@@ -1606,7 +1601,7 @@ public class GUI extends javax.swing.JFrame {
         }
         txfErziehlt.setText(Integer.toString(planer.rechneGesamtPunkte()));
         txfMoeglich.setText(Integer.toString(anzahlZeugnis*15));
-        jTextField1.setText(Integer.toString(300-planer.rechneGesamtPunkte()));
+        txfAbi.setText(Integer.toString(200-planer.rechneGesamtPunkte()));
         refreshAll();
     }//GEN-LAST:event_btnLoeschenFachActionPerformed
 
@@ -1672,7 +1667,7 @@ public class GUI extends javax.swing.JFrame {
             }
             tempHalbjahr.addFach(tempFach);
         }
-        jTextArea1.setText("");
+        txaUnterpunktet.setText("");
         for (int i=0; i<4; i++)
         {
             anzahlZeugnis += planer.getHalbjahr(i).getAnzahlFach();
@@ -1680,10 +1675,10 @@ public class GUI extends javax.swing.JFrame {
             {
                 if(planer.getHalbjahr(i).getFach(j).getZeugnisnote()<5 && planer.getHalbjahr(i).getFach(j).getZeugnisnote() > -1)
                 {
-                    jTextArea1.append("Fach: " + planer.getHalbjahr(i).getFach(j).getName()+ "\n");
-                    jTextArea1.append("Halbjahr: " + Integer.toString(i+1) + "\n");
-                    jTextArea1.append(Integer.toString(planer.getHalbjahr(i).getFach(j).getZeugnisnote()) + " Punkt(e) \n");
-                    jTextArea1.append("\n");
+                    txaUnterpunktet.append("Fach: " + planer.getHalbjahr(i).getFach(j).getName()+ "\n");
+                    txaUnterpunktet.append("Halbjahr: " + Integer.toString(i+1) + "\n");
+                    txaUnterpunktet.append(Integer.toString(planer.getHalbjahr(i).getFach(j).getZeugnisnote()) + " Punkt(e) \n");
+                    txaUnterpunktet.append("\n");
                 }
             }
         }
@@ -1693,7 +1688,7 @@ public class GUI extends javax.swing.JFrame {
         }
         txfErziehlt.setText(Integer.toString(planer.rechneGesamtPunkte()));
         txfMoeglich.setText(Integer.toString(anzahlZeugnis*15));
-        jTextField1.setText(Integer.toString(300-planer.rechneGesamtPunkte()));
+        txfAbi.setText(Integer.toString(200-planer.rechneGesamtPunkte()));
         refreshAll();
     }//GEN-LAST:event_btnHinzufuegenFachActionPerformed
 
@@ -1781,7 +1776,7 @@ public class GUI extends javax.swing.JFrame {
             }
             //tempHalbjahr.addFach(tempFach);
         }
-        jTextArea1.setText("");
+        txaUnterpunktet.setText("");
         for (int i=0; i<4; i++)
         {
             anzahlZeugnis += planer.getHalbjahr(i).getAnzahlFach();
@@ -1789,10 +1784,10 @@ public class GUI extends javax.swing.JFrame {
             {
                 if(planer.getHalbjahr(i).getFach(j).getZeugnisnote()<5 && planer.getHalbjahr(i).getFach(j).getZeugnisnote() > -1)
                 {
-                    jTextArea1.append("Fach: " + planer.getHalbjahr(i).getFach(j).getName()+ "\n");
-                    jTextArea1.append("Halbjahr: " + Integer.toString(i+1) + "\n");
-                    jTextArea1.append(Integer.toString(planer.getHalbjahr(i).getFach(j).getZeugnisnote()) + " Punkt(e) \n");
-                    jTextArea1.append("\n");
+                    txaUnterpunktet.append("Fach: " + planer.getHalbjahr(i).getFach(j).getName()+ "\n");
+                    txaUnterpunktet.append("Halbjahr: " + Integer.toString(i+1) + "\n");
+                    txaUnterpunktet.append(Integer.toString(planer.getHalbjahr(i).getFach(j).getZeugnisnote()) + " Punkt(e) \n");
+                    txaUnterpunktet.append("\n");
                 }
             }
         }
@@ -1802,7 +1797,7 @@ public class GUI extends javax.swing.JFrame {
         }
         txfErziehlt.setText(Integer.toString(planer.rechneGesamtPunkte()));
         txfMoeglich.setText(Integer.toString(anzahlZeugnis*15));
-        jTextField1.setText(Integer.toString(300-planer.rechneGesamtPunkte()));
+        txfAbi.setText(Integer.toString(200-planer.rechneGesamtPunkte()));
         refreshAll();
     }//GEN-LAST:event_btnBearbeitenFachActionPerformed
 
@@ -1989,8 +1984,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblDatum;
     private javax.swing.JLabel lblFach;
     private javax.swing.JLabel lblFachKlausurJ12;
@@ -2070,6 +2063,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JSpinner spinnerStunde;
     private javax.swing.JTable tableStundenplan;
     private javax.swing.JTextArea txaNotiz;
+    private javax.swing.JTextArea txaUnterpunktet;
+    private javax.swing.JTextField txfAbi;
     private javax.swing.JTextField txfDurchschnitt;
     private javax.swing.JTextField txfErziehlt;
     private javax.swing.JTextField txfFach;
