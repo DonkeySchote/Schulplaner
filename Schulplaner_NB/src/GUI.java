@@ -23,7 +23,7 @@ public class GUI extends javax.swing.JFrame {
     Speicher speicher;
     ArrayList<Klausur> alleKlausuren;
     ArrayList<Klausur> anstKlausuren;
-    
+
     /**
      * Creates new form Main
      */
@@ -39,7 +39,7 @@ public class GUI extends javax.swing.JFrame {
                 Halbjahr temphalb = new Halbjahr();
                 planer.setHalbjahr(temphalb, i);
             }
-   
+
         }
         this.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(WindowEvent winEvt) {
@@ -53,15 +53,15 @@ public class GUI extends javax.swing.JFrame {
         refreshFaecher();
         refreshAll();
     }
-    
-    public void speichern(){
+
+    public void speichern() {
         //Speicher.speicherePlaner(planer);
     }
-    
-    public void refreshAll(){
-         terminFaecherFuellen();
-         refreshNoten();
-         refreshFaecher();
+
+    public void refreshAll() {
+        terminFaecherFuellen();
+        refreshNoten();
+        refreshFaecher();
     }
 
     public void terminFaecherFuellen() {
@@ -77,14 +77,14 @@ public class GUI extends javax.swing.JFrame {
             }
         }
     }
-    
+
     public void refreshFaecher() {
         drawFaecher(panelJ1_1, scrollPaneJ1_1, planer.getHalbjahr(0));
         drawNoten(panelJ1_2, scrollPaneJ1_2, planer.getHalbjahr(1));
         drawNoten(panelJ2_1, scrollPaneJ2_1, planer.getHalbjahr(2));
         drawNoten(panelJ2_2, scrollPaneJ2_2, planer.getHalbjahr(3));
     }
-    
+
     public void refreshNoten() {
         drawNoten(notenj11Panel, notenj11ScrollPane, planer.getHalbjahr(0));
         drawFaecher(notenj12Panel, notenj12ScrollPane, planer.getHalbjahr(1));
@@ -177,8 +177,8 @@ public class GUI extends javax.swing.JFrame {
         panelAnstTermin.revalidate();
         panelAnstTermin.repaint();
     }
-    
-    public void drawNoten(javax.swing.JPanel contentpanel, javax.swing.JScrollPane scrollpane, Halbjahr semester){
+
+    public void drawNoten(javax.swing.JPanel contentpanel, javax.swing.JScrollPane scrollpane, Halbjahr semester) {
         int height = 100;
         ArrayList<NotenPanel> panels = new ArrayList();
         if (semester != null) {
@@ -199,18 +199,17 @@ public class GUI extends javax.swing.JFrame {
             contentpanel.removeAll();
             for (int i = 0; i < panels.size(); i++) {
                 NotenPanel panel = panels.get(i);
-                panel.setBounds(0, i * (height+1), panelAnstTermin.getWidth(), height);
+                panel.setBounds(0, i * (height + 1), panelAnstTermin.getWidth(), height);
                 contentpanel.add(panel);
-                contentpanel.setPreferredSize(new Dimension(contentpanel.getWidth(), i * (height+1)));
+                contentpanel.setPreferredSize(new Dimension(contentpanel.getWidth(), i * (height + 1)));
             }
             scrollpane.revalidate();
             contentpanel.revalidate();
             contentpanel.repaint();
         }
     }
-    
-    
-    public void drawFaecher(javax.swing.JPanel contentpanel, javax.swing.JScrollPane scrollpane, Halbjahr semester){
+
+    public void drawFaecher(javax.swing.JPanel contentpanel, javax.swing.JScrollPane scrollpane, Halbjahr semester) {
         int height = 140;
         ArrayList<FachPanel> panels = new ArrayList();
         if (semester != null) {
@@ -219,7 +218,7 @@ public class GUI extends javax.swing.JFrame {
                 System.out.println(fach.getName());
                 FachPanel panel = new FachPanel();
                 panel.setFach(fach.getName());
-                String noteKA ="";
+                String noteKA = "";
                 panel.setLehrer(fach.getLehrer());
                 panel.setUnterrichtszeiten(fach.getUnterrichtszeiten());
                 panel.setNoteKA(fach.getKlausurnoten());
@@ -233,9 +232,9 @@ public class GUI extends javax.swing.JFrame {
             contentpanel.removeAll();
             for (int i = 0; i < panels.size(); i++) {
                 FachPanel panel = panels.get(i);
-                panel.setBounds(0, i * (height+1), panelAnstTermin.getWidth(), height);
+                panel.setBounds(0, i * (height + 1), panelAnstTermin.getWidth(), height);
                 contentpanel.add(panel);
-                contentpanel.setPreferredSize(new Dimension(contentpanel.getWidth(), i * (height+1)));
+                contentpanel.setPreferredSize(new Dimension(contentpanel.getWidth(), i * (height + 1)));
             }
             scrollpane.revalidate();
             contentpanel.revalidate();
@@ -444,6 +443,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         btnStundeLoeschen.setText("Stunde löschen");
+        btnStundeLoeschen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStundeLoeschenActionPerformed(evt);
+            }
+        });
 
         cBoxHalbjahrSp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
 
@@ -464,15 +468,15 @@ public class GUI extends javax.swing.JFrame {
                                 .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(paneStundenplanLayout.createSequentialGroup()
                                         .addGap(67, 67, 67)
-                                        .addComponent(spinnerStunde))
+                                        .addComponent(spinnerStunde, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE))
                                     .addGroup(paneStundenplanLayout.createSequentialGroup()
                                         .addGap(35, 35, 35)
                                         .addComponent(cBoxTag, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addComponent(cBoxFachSp, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
-                        .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnStundeErstellen, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnStundeLoeschen, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnStundeErstellen, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                            .addComponent(btnStundeLoeschen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(paneStundenplanLayout.createSequentialGroup()
                         .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1225,7 +1229,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblFachKlausurJ12)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ12)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout notenj12PanelLayout = new javax.swing.GroupLayout(notenj12Panel);
@@ -1282,7 +1286,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblKlausurNoteJ21)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ21)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout notenj21PanelLayout = new javax.swing.GroupLayout(notenj21Panel);
@@ -1338,7 +1342,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblKlausurNoteJ22)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ22)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout notenj22PanelLayout = new javax.swing.GroupLayout(notenj22Panel);
@@ -1620,13 +1624,13 @@ public class GUI extends javax.swing.JFrame {
             Fach fach = (Fach) cbFach.getSelectedItem();
             boolean vorhanden = false;
             for (int i = 0; i < fach.getAnzahlKlausur(); i++) {
-                if(fach.getKlausur(i).getName().equals(txfName.getText())){
+                if (fach.getKlausur(i).getName().equals(txfName.getText())) {
                     vorhanden = true;
                 }
             }
-            if(vorhanden)
+            if (vorhanden) {
                 JOptionPane.showMessageDialog(this, "Ein Termin mit diesem Namen existiert bereits");
-            else{
+            } else {
                 Klausur klausur = new Klausur((Date) spinnerDatum.getValue());
                 klausur.setNotiz(txaNotiz.getText());
                 if (!txfNote.getText().isEmpty()) {
@@ -1638,11 +1642,10 @@ public class GUI extends javax.swing.JFrame {
                 drawAnstTermine();
                 refreshNoten();
             }
-        }
-        else{
+        } else {
             JOptionPane.showMessageDialog(this, "Kein Terminname angegeben");
         }
-        
+
     }//GEN-LAST:event_btnHinzufuegenTerminActionPerformed
 
     private void btnBearbeitenFachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBearbeitenFachActionPerformed
@@ -1704,11 +1707,10 @@ public class GUI extends javax.swing.JFrame {
 
     private void btnSucheFachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSucheFachActionPerformed
         String fachname = "";
-        if(planer.getHalbjahr(cBoxHalbjahr.getSelectedIndex()).getFachByName(fachname).getZeugnisnote() != -1)
-        {
+        if (planer.getHalbjahr(cBoxHalbjahr.getSelectedIndex()).getFachByName(fachname).getZeugnisnote() != -1) {
             txfZeugnis.setText(Integer.toString(planer.getHalbjahr(cBoxHalbjahr.getSelectedIndex()).getFachByName(fachname).getZeugnisnote()));
         }
-        
+
         String klausuren = "";
         {
             for (int i = 0; i < planer.getHalbjahr(cBoxHalbjahr.getSelectedIndex()).getFachByName(fachname).getAnzahlKlausur(); i++) {
@@ -1726,15 +1728,14 @@ public class GUI extends javax.swing.JFrame {
         if (!txfName.getText().isEmpty()) {
             Fach fach = (Fach) cbFach.getSelectedItem();
             for (int i = 0; i < fach.getAnzahlKlausur(); i++) {
-                if(fach.getKlausur(i).getName().equals(txfName.getText())){
+                if (fach.getKlausur(i).getName().equals(txfName.getText())) {
                     fach.deleteKlausur(i);
                 }
             }
-                drawAlleTermine();
-                drawAnstTermine();
-                refreshNoten();
-        }
-        else{
+            drawAlleTermine();
+            drawAnstTermine();
+            refreshNoten();
+        } else {
             JOptionPane.showMessageDialog(this, "Kein Terminname angegeben");
         }
     }//GEN-LAST:event_btnLoeschenTerminActionPerformed
@@ -1743,7 +1744,7 @@ public class GUI extends javax.swing.JFrame {
         if (!txfName.getText().isEmpty()) {
             Fach fach = (Fach) cbFach.getSelectedItem();
             for (int i = 0; i < fach.getAnzahlKlausur(); i++) {
-                if(fach.getKlausur(i).getName().equals(txfName.getText())){
+                if (fach.getKlausur(i).getName().equals(txfName.getText())) {
                     Klausur klausur = fach.getKlausur(i);
                     klausur.setNotiz(txaNotiz.getText());
                     if (!txfNote.getText().isEmpty()) {
@@ -1753,18 +1754,86 @@ public class GUI extends javax.swing.JFrame {
                     klausur.setName(txfName.getText());
                 }
             }
-                drawAlleTermine();
-                drawAnstTermine();
-                refreshNoten();
-        }
-        else{
+            drawAlleTermine();
+            drawAnstTermine();
+            refreshNoten();
+        } else {
             JOptionPane.showMessageDialog(this, "Kein Terminname angegeben");
         }
     }//GEN-LAST:event_btnBearbeitenTerminActionPerformed
 
     private void btnStundeErstellenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStundeErstellenActionPerformed
-        // TODO add your handling code here:
+        Fach tempFach;
+        String tempTag;
+        int tempHalbjahrNr, tempStunde;        
+
+        tempFach = (Fach) cBoxFachSp.getSelectedItem();
+        tempTag = (String) cBoxTag.getSelectedItem();
+        tempHalbjahrNr = ((int) cBoxHalbjahrSp.getSelectedIndex());
+        tempStunde = (int) spinnerStunde.getValue()-1;
+        
+
+        switch (tempTag) {
+            case "Montag":
+                break;
+            case "Dienstag":
+                tempStunde = tempStunde + 12;
+                break;
+            case "Mittwoch":
+                tempStunde = tempStunde + 12 * 2;
+                break;
+            case "Donnerstag":
+                tempStunde = tempStunde + 12 * 3;
+                break;
+            case "Freitag":
+                tempStunde = tempStunde + 12 * 4;
+                break;
+        }
+        
+        tempFach.setStunde(tempStunde);        
+        
     }//GEN-LAST:event_btnStundeErstellenActionPerformed
+
+    private void btnStundeLoeschenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStundeLoeschenActionPerformed
+        Fach tempFach;
+        String tempTag;
+        int tempHalbjahrNr, tempStunde, tempZeiger; 
+        ArrayList <Integer> stunden;
+
+        tempFach = (Fach) cBoxFachSp.getSelectedItem();
+        tempTag = (String) cBoxTag.getSelectedItem();
+        tempHalbjahrNr = ((int) cBoxHalbjahrSp.getSelectedIndex());
+        tempStunde = (int) spinnerStunde.getValue()-1;
+        
+        switch (tempTag) {
+            case "Montag":
+                break;
+            case "Dienstag":
+                tempStunde = tempStunde + 12;
+                break;
+            case "Mittwoch":
+                tempStunde = tempStunde + 12 * 2;
+                break;
+            case "Donnerstag":
+                tempStunde = tempStunde + 12 * 3;
+                break;
+            case "Freitag":
+                tempStunde = tempStunde + 12 * 4;
+                break;
+        }
+        
+        stunden = tempFach.getStunden();
+        
+        for (int i = 0; i < stunden.size(); i++) {
+            if(stunden.get(i) == tempStunde){
+                tempZeiger = i;
+                tempFach.deleteStunde(tempZeiger);
+                break;
+            }
+        }
+        
+        
+    }//GEN-LAST:event_btnStundeLoeschenActionPerformed
 
     /**
      * @param args the command line arguments

@@ -77,9 +77,9 @@
                                   <Component id="cBoxFachSp" min="-2" pref="88" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnStundeErstellen" alignment="0" min="-2" pref="113" max="-2" attributes="0"/>
-                                  <Component id="btnStundeLoeschen" alignment="0" min="-2" pref="113" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btnStundeErstellen" pref="140" max="32767" attributes="0"/>
+                                  <Component id="btnStundeLoeschen" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -217,11 +217,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Stunde erstellen"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStundeErstellenActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnStundeLoeschen">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Stunde l&#xf6;schen"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStundeLoeschenActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="cBoxHalbjahrSp">
               <Properties>
