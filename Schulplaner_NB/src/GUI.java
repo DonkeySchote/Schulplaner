@@ -1593,8 +1593,8 @@ public class GUI extends javax.swing.JFrame {
                 tempFach.setName(tempName);
                 tempFach.setKlammerbar(cbKlamemrbar.isSelected());
                 tempFach.setRaum(txfRaum.getText());
-                if (txfZeugnis.getText().equals("") == false) {
-                    tempFach.setZeugnisnote(Integer.valueOf(txfZeugnis.getText()));
+                if (txfZeugnisSet.getText().equals("") == false) {
+                    tempFach.setZeugnisnote(Integer.valueOf(txfZeugnisSet.getText()));
                 }
                 tempHalbjahr.addFach(tempFach);
             }
@@ -1603,8 +1603,8 @@ public class GUI extends javax.swing.JFrame {
             tempFach.setName(tempName);
             tempFach.setKlammerbar(cbKlamemrbar.isSelected());
             tempFach.setRaum(txfRaum.getText());
-            if (txfZeugnis.getText().equals("") == false) {
-                tempFach.setZeugnisnote(Integer.valueOf(txfZeugnis.getText()));
+            if (txfZeugnisSet.getText().equals("") == false) {
+                tempFach.setZeugnisnote(Integer.valueOf(txfZeugnisSet.getText()));
             }
             tempHalbjahr.addFach(tempFach);
         }
@@ -1677,8 +1677,8 @@ public class GUI extends javax.swing.JFrame {
                 tempFach.setLehrer(tempLehrer);
                 tempFach.setKlammerbar(cbKlamemrbar.isSelected());
                 tempFach.setRaum(txfRaum.getText());
-                if (txfZeugnis.getText().equals("") == false) {
-                    tempFach.setZeugnisnote(Integer.valueOf(txfZeugnis.getText()));
+                if (txfZeugnisSet.getText().equals("") == false) {
+                    tempFach.setZeugnisnote(Integer.valueOf(txfZeugnisSet.getText()));
                 }
                 //tempHalbjahr.addFach(tempFach);
             } else {
@@ -1689,8 +1689,8 @@ public class GUI extends javax.swing.JFrame {
             tempFach.setLehrer(tempLehrer);
             tempFach.setKlammerbar(cbKlamemrbar.isSelected());
             tempFach.setRaum(txfRaum.getText());
-            if (txfZeugnis.getText().equals("") == false) {
-                tempFach.setZeugnisnote(Integer.valueOf(txfZeugnis.getText()));
+            if (txfZeugnisSet.getText().equals("") == false) {
+                tempFach.setZeugnisnote(Integer.valueOf(txfZeugnisSet.getText()));
             }
             //tempHalbjahr.addFach(tempFach);
         }
