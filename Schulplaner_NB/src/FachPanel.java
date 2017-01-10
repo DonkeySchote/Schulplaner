@@ -23,12 +23,17 @@ public class FachPanel extends JPanel implements Comparable<FachPanel>{
     JLabel lblNoteKA;
     JLabel lblNoteZeugnis;
     JLabel lblUnterrichtszeiten;
+    JLabel lblRaum;
     /*JTextField txfNoteZeugnis;
     JTextField txfNoteKA;*/
     
     
     public void setUnterrichtszeiten(String stunden){
         lblUnterrichtszeiten.setText("Unterrichtszeiten: " + stunden);
+    }
+    
+    public void setRaum(String raum){
+        lblRaum.setText(raum);
     }
     
     public void setFach(String fach){
@@ -76,6 +81,7 @@ public class FachPanel extends JPanel implements Comparable<FachPanel>{
         lblNoteKA = new JLabel("Klausurennote: ");
         lblNoteZeugnis = new JLabel("Zeugnisnote: ");
         lblUnterrichtszeiten = new JLabel("Unterrichtszeiten: ");
+        lblRaum = new JLabel("Raum");
         /*txfNoteZeugnis = new JTextField();
         txfNoteKA = new JTextField();*/
         
@@ -85,37 +91,35 @@ public class FachPanel extends JPanel implements Comparable<FachPanel>{
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblFach)
-                    .addComponent(lblLehrer)
-                    .addComponent(lblUnterrichtszeiten)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblFach)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblRaum))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNoteKA)
-                            .addComponent(lblNoteZeugnis))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        /*.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txfNoteZeugnis, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                            .addComponent(txfNoteKA))*/))
-                .addContainerGap(217, Short.MAX_VALUE))
+                            .addComponent(lblLehrer)
+                            .addComponent(lblUnterrichtszeiten)
+                            .addComponent(lblNoteZeugnis)
+                            .addComponent(lblNoteKA))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblFach)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFach)
+                    .addComponent(lblRaum))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblLehrer)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblUnterrichtszeiten)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNoteZeugnis)
-                    /*.addComponent(txfNoteZeugnis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)*/)
+                .addComponent(lblNoteZeugnis)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNoteKA)
-                    /*.addComponent(txfNoteKA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)*/)
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addComponent(lblNoteKA)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }
 }

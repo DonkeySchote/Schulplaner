@@ -19,6 +19,7 @@ public class Fach implements Serializable{
     private boolean klammerbar;
     private String name;
     private ArrayList <Klausur> klausur;
+    private String raum;
     
     public Fach()
     {
@@ -44,6 +45,13 @@ public class Fach implements Serializable{
         this.zeugnisnote = zeugnisnote;
     }
     
+    public void setRaum(String raum){
+        this.raum = raum;
+    }
+    
+    public String getRaum(){
+        return raum;
+    }
     public int getZeugnisnote()
     {
         return zeugnisnote;

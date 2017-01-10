@@ -219,6 +219,7 @@ public class GUI extends javax.swing.JFrame {
                 panel.setLehrer(fach.getLehrer());
                 panel.setUnterrichtszeiten(fach.getUnterrichtszeiten());
                 panel.setNoteKA(fach.getKlausurnoten());
+                panel.setRaum(fach.getRaum());
                 panel.setKlammerbar(fach.getKlammerbar());
                 panels.add(panel);
             }
@@ -870,8 +871,6 @@ public class GUI extends javax.swing.JFrame {
 
         cbKlamemrbar.setText("ja ? ");
 
-        txfRaum.setEnabled(false);
-
         lblRaum.setText("Raum");
 
         javax.swing.GroupLayout paneFachLayout = new javax.swing.GroupLayout(paneFach);
@@ -1227,7 +1226,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblFachKlausurJ12)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ12)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout notenj12PanelLayout = new javax.swing.GroupLayout(notenj12Panel);
@@ -1284,7 +1283,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblKlausurNoteJ21)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ21)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout notenj21PanelLayout = new javax.swing.GroupLayout(notenj21Panel);
@@ -1340,7 +1339,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblKlausurNoteJ22)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ22)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout notenj22PanelLayout = new javax.swing.GroupLayout(notenj22Panel);
@@ -1595,7 +1594,7 @@ public class GUI extends javax.swing.JFrame {
                 tempFach.setLehrer(tempLehrer);
                 tempFach.setName(tempName);
                 tempFach.setKlammerbar(cbKlamemrbar.isSelected());
-
+                tempFach.setRaum(txfRaum.getText());
                 if (txfZeugnis.getText().equals("") == false) {
                     tempFach.setZeugnisnote(Integer.valueOf(txfZeugnis.getText()));
                 }
@@ -1605,7 +1604,7 @@ public class GUI extends javax.swing.JFrame {
             tempFach.setLehrer(tempLehrer);
             tempFach.setName(tempName);
             tempFach.setKlammerbar(cbKlamemrbar.isSelected());
-
+            tempFach.setRaum(txfRaum.getText());
             if (txfZeugnis.getText().equals("") == false) {
                 tempFach.setZeugnisnote(Integer.valueOf(txfZeugnis.getText()));
             }
@@ -1679,7 +1678,7 @@ public class GUI extends javax.swing.JFrame {
                 tempFach = tempHalbjahr.getFachByName(tempName);
                 tempFach.setLehrer(tempLehrer);
                 tempFach.setKlammerbar(cbKlamemrbar.isSelected());
-
+                tempFach.setRaum(txfRaum.getText());
                 if (txfZeugnis.getText().equals("") == false) {
                     tempFach.setZeugnisnote(Integer.valueOf(txfZeugnis.getText()));
                 }
@@ -1691,7 +1690,7 @@ public class GUI extends javax.swing.JFrame {
             tempFach = tempHalbjahr.getFachByName(tempName);
             tempFach.setLehrer(tempLehrer);
             tempFach.setKlammerbar(cbKlamemrbar.isSelected());
-
+            tempFach.setRaum(txfRaum.getText());
             if (txfZeugnis.getText().equals("") == false) {
                 tempFach.setZeugnisnote(Integer.valueOf(txfZeugnis.getText()));
             }
