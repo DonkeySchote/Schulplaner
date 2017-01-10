@@ -260,16 +260,13 @@ public class GUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         cBoxFachSp = new javax.swing.JComboBox();
         cBoxTag = new javax.swing.JComboBox();
         spinnerStunde = new javax.swing.JSpinner();
-        checkBoxA = new javax.swing.JCheckBox();
-        checkBoxB = new javax.swing.JCheckBox();
         btnStundeErstellen = new javax.swing.JButton();
         btnStundeLoeschen = new javax.swing.JButton();
-        btnWocheWechseln = new javax.swing.JButton();
-        lblWoche = new javax.swing.JLabel();
+        cBoxHalbjahrSp = new javax.swing.JComboBox<>();
+        lblHaljahrSp = new javax.swing.JLabel();
         paneFach = new javax.swing.JPanel();
         mitteFachSeparator = new javax.swing.JSeparator();
         linkerFachPane = new javax.swing.JTabbedPane();
@@ -434,66 +431,61 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel4.setText("Stunde:");
 
-        jLabel5.setText("Woche:");
+        cBoxTag.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag" }));
 
-        cBoxFachSp.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cBoxTag.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        checkBoxA.setText("A");
-
-        checkBoxB.setText("B");
+        spinnerStunde.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
 
         btnStundeErstellen.setText("Stunde erstellen");
 
         btnStundeLoeschen.setText("Stunde löschen");
 
-        btnWocheWechseln.setText("Woche wechseln");
+        cBoxHalbjahrSp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
 
-        lblWoche.setText("Woche A:");
+        lblHaljahrSp.setText("Halbjahr:");
 
         javax.swing.GroupLayout paneStundenplanLayout = new javax.swing.GroupLayout(paneStundenplan);
         paneStundenplan.setLayout(paneStundenplanLayout);
         paneStundenplanLayout.setHorizontalGroup(
             paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 838, Short.MAX_VALUE)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 916, Short.MAX_VALUE)
             .addGroup(paneStundenplanLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(paneStundenplanLayout.createSequentialGroup()
-                        .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(paneStundenplanLayout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addGap(67, 67, 67)
-                                .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cBoxTag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(paneStundenplanLayout.createSequentialGroup()
-                                        .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cBoxFachSp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(spinnerStunde, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(30, 30, 30)
-                                        .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnStundeErstellen, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnStundeLoeschen, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnWocheWechseln)))
+                                        .addGap(67, 67, 67)
+                                        .addComponent(spinnerStunde, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE))
                                     .addGroup(paneStundenplanLayout.createSequentialGroup()
-                                        .addComponent(checkBoxA)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(checkBoxB))))
-                            .addComponent(lblWoche))
+                                        .addGap(35, 35, 35)
+                                        .addComponent(cBoxTag, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(cBoxFachSp, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnStundeErstellen, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnStundeLoeschen, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(paneStundenplanLayout.createSequentialGroup()
                         .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel5))
+                            .addGroup(paneStundenplanLayout.createSequentialGroup()
+                                .addComponent(lblHaljahrSp)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cBoxHalbjahrSp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         paneStundenplanLayout.setVerticalGroup(
             paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paneStundenplanLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(lblWoche)
+                .addGap(4, 4, 4)
+                .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cBoxHalbjahrSp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblHaljahrSp))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -504,19 +496,13 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(cBoxTag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnStundeLoeschen))
-                .addGap(18, 18, 18)
-                .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnWocheWechseln)
-                    .addComponent(jLabel3)
+                    .addComponent(btnStundeLoeschen)
                     .addComponent(spinnerStunde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(checkBoxA)
-                    .addComponent(checkBoxB))
-                .addContainerGap(130, Short.MAX_VALUE))
+                    .addComponent(jLabel3)
+                    .addComponent(cBoxTag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(225, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Stundenplan", paneStundenplan);
@@ -1234,7 +1220,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblFachKlausurJ12)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ12)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout notenj12PanelLayout = new javax.swing.GroupLayout(notenj12Panel);
@@ -1291,7 +1277,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblKlausurNoteJ21)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ21)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout notenj21PanelLayout = new javax.swing.GroupLayout(notenj21Panel);
@@ -1347,7 +1333,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblKlausurNoteJ22)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ22)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout notenj22PanelLayout = new javax.swing.GroupLayout(notenj22Panel);
@@ -1818,18 +1804,16 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton btnStundeErstellen;
     private javax.swing.JButton btnStundeLoeschen;
     private javax.swing.JButton btnSucheFach;
-    private javax.swing.JButton btnWocheWechseln;
     private javax.swing.ButtonGroup btngrpHalbjahr;
     private javax.swing.ButtonGroup btngrpJahrgang;
     private javax.swing.JComboBox cBoxFachNote;
     private javax.swing.JComboBox cBoxFachSp;
     private javax.swing.JComboBox<String> cBoxHalbjahr;
+    private javax.swing.JComboBox<String> cBoxHalbjahrSp;
     private javax.swing.JComboBox cBoxTag;
     private javax.swing.JComboBox cbFach;
     private javax.swing.JComboBox<String> cbHalbjahre;
     private javax.swing.JCheckBox cbKlamemrbar;
-    private javax.swing.JCheckBox checkBoxA;
-    private javax.swing.JCheckBox checkBoxB;
     private javax.swing.JSeparator j1_2Separator1;
     private javax.swing.JSeparator j2_1Separator1;
     private javax.swing.JSeparator j2_2Separator1;
@@ -1842,7 +1826,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1866,6 +1849,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblFachSet;
     private javax.swing.JLabel lblHalbjahrSet;
     private javax.swing.JLabel lblHalbjahrTerminDingens;
+    private javax.swing.JLabel lblHaljahrSp;
     private javax.swing.JLabel lblJ1_2Fach1;
     private javax.swing.JLabel lblJ1_2Lehrer1;
     private javax.swing.JLabel lblJ1_2NoteZeugnis1;
@@ -1891,7 +1875,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblTerminName;
     private javax.swing.JLabel lblTitelFach;
     private javax.swing.JLabel lblTitelTermin;
-    private javax.swing.JLabel lblWoche;
     private javax.swing.JLabel lblZeugnisNoteJ12;
     private javax.swing.JLabel lblZeugnisNoteJ21;
     private javax.swing.JLabel lblZeugnisNoteJ22;
