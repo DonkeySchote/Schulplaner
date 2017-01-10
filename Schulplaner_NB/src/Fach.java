@@ -66,6 +66,21 @@ public class Fach implements Serializable{
         }
     }
     
+    public String getUnterrichtszeiten(){
+        return "notyetimplemented";
+    }
+    
+    public String getKlausurnoten(){
+        String noteKA = "NA";
+        if(klausur.size()>0){
+            noteKA = String.valueOf(klausur.get(0).getNote());
+            for (int i = 0; i < klausur.size(); i++) {
+                noteKA = noteKA + String.valueOf(klausur.get(i).getNote());
+            }
+        }
+        return noteKA;
+    }
+    
     public void deleteStunde(int stunde)
     {
         stunden.remove(stunde);

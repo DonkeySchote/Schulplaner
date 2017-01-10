@@ -32,9 +32,9 @@ public class NotenPanel extends JPanel implements Comparable<NotenPanel>{
             lblNoteKA.setText("Klausurennote: N/A");
     }
     
-    public void setNoteKA(int note){
+    public void setNoteKA(String note){
         lblNoteKA.setText("Klausurennote: " + note);
-        if(note==-1)
+        if(note.equals(""))
             lblNoteKA.setText("Klausurennote: N/A");
     }
     

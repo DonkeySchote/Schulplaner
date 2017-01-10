@@ -15,7 +15,7 @@ import javax.swing.JPanel;
  */
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-public class FachPanel extends JPanel{
+public class FachPanel extends JPanel implements Comparable<FachPanel>{
     
     javax.swing.GroupLayout layout;
     JLabel lblFach;
@@ -23,16 +23,9 @@ public class FachPanel extends JPanel{
     JLabel lblNoteKA;
     JLabel lblNoteZeugnis;
     JLabel lblUnterrichtszeiten;
-    JTextField txfNoteZeugnis;
-    JTextField txfNoteKA;
+    /*JTextField txfNoteZeugnis;
+    JTextField txfNoteKA;*/
     
-    public JTextField getTxfNoteZeugnis(){
-        return txfNoteZeugnis;
-    }
-    
-    public JTextField getTxfNoteKA(){
-        return txfNoteKA;
-    }
     
     public void setUnterrichtszeiten(String stunden){
         lblUnterrichtszeiten.setText("Unterrichtszeiten: " + stunden);
@@ -42,8 +35,35 @@ public class FachPanel extends JPanel{
         lblFach.setText(fach);
     }
     
+    public String getFach(){
+        return lblFach.getText();
+    }
+    
     public void setLehrer(String lehrer){
         lblLehrer.setText(lehrer);
+        if(lblLehrer.getText().isEmpty()){
+            lblLehrer.setText(lehrer);
+        }
+    }
+    
+    public void setKlammerbar(boolean klammer){
+        if(klammer)
+            lblNoteKA.setText("Klammerbar");
+        else
+            lblNoteKA.setText("Nicht klammerbar");
+    }
+    
+    public void setNoteKA(String noteka){
+        lblNoteKA.setText("");
+    }
+    
+    public void setNoteZeugnis(String note){
+        lblNoteZeugnis.setText("Zeugnisnote: " + note);
+    }
+    
+    @Override
+    public int compareTo(FachPanel panel) {
+        return this.lblFach.getText().compareTo(panel.getFach());
     }
     
     public FachPanel(){
@@ -56,8 +76,8 @@ public class FachPanel extends JPanel{
         lblNoteKA = new JLabel("Klausurennote: ");
         lblNoteZeugnis = new JLabel("Zeugnisnote: ");
         lblUnterrichtszeiten = new JLabel("Unterrichtszeiten: ");
-        txfNoteZeugnis = new JTextField();
-        txfNoteKA = new JTextField();
+        /*txfNoteZeugnis = new JTextField();
+        txfNoteKA = new JTextField();*/
         
         
         layout.setHorizontalGroup(
@@ -73,9 +93,9 @@ public class FachPanel extends JPanel{
                             .addComponent(lblNoteKA)
                             .addComponent(lblNoteZeugnis))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        /*.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txfNoteZeugnis, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                            .addComponent(txfNoteKA))))
+                            .addComponent(txfNoteKA))*/))
                 .addContainerGap(217, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -90,11 +110,11 @@ public class FachPanel extends JPanel{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNoteZeugnis)
-                    .addComponent(txfNoteZeugnis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    /*.addComponent(txfNoteZeugnis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)*/)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNoteKA)
-                    .addComponent(txfNoteKA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    /*.addComponent(txfNoteKA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)*/)
                 .addContainerGap(146, Short.MAX_VALUE))
         );
     }
