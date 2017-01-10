@@ -1838,12 +1838,11 @@ public class GUI extends javax.swing.JFrame {
         int tempHalbjahrNr, tempStunde;        
 
         tempFach = (Fach) cBoxFachSp.getSelectedItem();
-        tempTag = (String) cBoxTag.getSelectedItem();
+        //tempTag = (String) cBoxTag.getSelectedItem();
         tempHalbjahrNr = ((int) cBoxHalbjahrSp.getSelectedIndex());
-        tempStunde = (int) spinnerStunde.getValue()-1;
         
-
-        switch (tempTag) {
+        tempStunde = (int) spinnerStunde.getValue()-1 + 12 * cBoxTag.getSelectedIndex();
+        /*switch (tempTag) {
             case "Montag":
                 break;
             case "Dienstag":
@@ -1858,7 +1857,7 @@ public class GUI extends javax.swing.JFrame {
             case "Freitag":
                 tempStunde = tempStunde + 12 * 4;
                 break;
-        }
+        }*/
         
         tempFach.setStunde(tempStunde);        
         
