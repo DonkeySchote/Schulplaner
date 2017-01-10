@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -62,6 +63,7 @@ public class GUI extends javax.swing.JFrame {
         terminFaecherFuellen();
         refreshNoten();
         refreshFaecher();
+        tabelleFuellen();
     }
 
     public void terminFaecherFuellen() {
@@ -79,6 +81,7 @@ public class GUI extends javax.swing.JFrame {
     }
     
     public void tabelleFuellen() {
+        
         Halbjahr halbjahr = planer.getHalbjahr(cBoxHalbjahrSp.getSelectedIndex());
         for (int i = 0; i < halbjahr.getAnzahlFach(); i++) {
             Fach fach = halbjahr.getFach(i);
@@ -1851,64 +1854,29 @@ public class GUI extends javax.swing.JFrame {
 
     private void btnStundeErstellenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStundeErstellenActionPerformed
         Fach tempFach;
-        String tempTag;
-        int tempHalbjahrNr, tempStunde;        
-
+        int tempHalbjahrNr, tempStunde; 
+        
         tempFach = (Fach) cBoxFachSp.getSelectedItem();
-        //tempTag = (String) cBoxTag.getSelectedItem();
+
         tempHalbjahrNr = ((int) cBoxHalbjahrSp.getSelectedIndex());
         
-        tempStunde = (int) spinnerStunde.getValue()-1 + 12 * cBoxTag.getSelectedIndex();
-        /*switch (tempTag) {
-            case "Montag":
-                break;
-            case "Dienstag":
-                tempStunde = tempStunde + 12;
-                break;
-            case "Mittwoch":
-                tempStunde = tempStunde + 12 * 2;
-                break;
-            case "Donnerstag":
-                tempStunde = tempStunde + 12 * 3;
-                break;
-            case "Freitag":
-                tempStunde = tempStunde + 12 * 4;
-                break;
-        }*/
+        tempStunde = (int) spinnerStunde.getValue()-1 +  12*cBoxTag.getSelectedIndex();
+
+        tempFach.setStunde(tempStunde);
         
-        tempFach.setStunde(tempStunde);        
-        
-        tabelleFuellen();
+       refreshAll();
     }//GEN-LAST:event_btnStundeErstellenActionPerformed
 
     private void btnStundeLoeschenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStundeLoeschenActionPerformed
-        Fach tempFach;
-        String tempTag;
-        int tempHalbjahrNr, tempStunde, tempZeiger; 
-        ArrayList <Integer> stunden;
 
+        ArrayList <Integer> stunden;
+        Fach tempFach;
+        int tempHalbjahrNr, tempStunde, tempZeiger;  
+        
         tempFach = (Fach) cBoxFachSp.getSelectedItem();
-        tempTag = (String) cBoxTag.getSelectedItem();
         tempHalbjahrNr = ((int) cBoxHalbjahrSp.getSelectedIndex());
-        tempStunde = (int) spinnerStunde.getValue()-1;
-        
-        switch (tempTag) {
-            case "Montag":
-                break;
-            case "Dienstag":
-                tempStunde = tempStunde + 12;
-                break;
-            case "Mittwoch":
-                tempStunde = tempStunde + 12 * 2;
-                break;
-            case "Donnerstag":
-                tempStunde = tempStunde + 12 * 3;
-                break;
-            case "Freitag":
-                tempStunde = tempStunde + 12 * 4;
-                break;
-        }
-        
+        tempStunde = (int) spinnerStunde.getValue()-1 +  12*cBoxTag.getSelectedIndex();
+
         stunden = tempFach.getStunden();
         
         for (int i = 0; i < stunden.size(); i++) {
@@ -1919,7 +1887,8 @@ public class GUI extends javax.swing.JFrame {
             }
         }
         
-        tabelleFuellen();
+
+       refreshAll();
     }//GEN-LAST:event_btnStundeLoeschenActionPerformed
 
     private void cBoxHalbjahrSpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBoxHalbjahrSpActionPerformed
