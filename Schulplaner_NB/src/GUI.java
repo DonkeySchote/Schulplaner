@@ -1521,6 +1521,8 @@ public class GUI extends javax.swing.JFrame {
         Fach tempFach = new Fach();
 
         tempName = txfFach.getText();
+        
+        int anzahlZeugnis = 0;
 
         if (rdbtnJ1.isSelected()) {
             if (rdbtnHalbjahr1.isSelected()) {
@@ -1551,7 +1553,27 @@ public class GUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Dieses Fach gibt es nicht");
             }
         }
+        jTextArea1.setText("");
+        for (int i=0; i<4; i++)
+        {
+            anzahlZeugnis += planer.getHalbjahr(i).getAnzahlFach();
+            for(int j=0; j<planer.getHalbjahr(i).getAnzahlFach(); j++)
+            {
+                if(planer.getHalbjahr(i).getFach(j).getZeugnisnote()<5 && planer.getHalbjahr(i).getFach(j).getZeugnisnote() > -1)
+                {
+                    jTextArea1.append("Fach: " + planer.getHalbjahr(i).getFach(j).getName()+ "\n");
+                    jTextArea1.append("Halbjahr: " + Integer.toString(i+1) + "\n");
+                    jTextArea1.append(Integer.toString(planer.getHalbjahr(i).getFach(j).getZeugnisnote()) + " Punkt(e) \n");
+                    jTextArea1.append("\n");
+                }
+            }
+        }
+        if(anzahlZeugnis != 0)
+        {
+            txfDurchschnitt.setText(Double.toString((double)planer.rechneGesamtPunkte()/anzahlZeugnis));
+        }
         txfErziehlt.setText(Integer.toString(planer.rechneGesamtPunkte()));
+        txfMoeglich.setText(Integer.toString(anzahlZeugnis*15));
         jTextField1.setText(Integer.toString(300-planer.rechneGesamtPunkte()));
         refreshAll();
     }//GEN-LAST:event_btnLoeschenFachActionPerformed
@@ -1572,6 +1594,9 @@ public class GUI extends javax.swing.JFrame {
 
         tempName = txfFach.getText();
         tempLehrer = txfLehrer.getText();
+        
+        int anzahlZeugnis = 0;
+        
         if (rdbtnJ1.isSelected()) {
             if (rdbtnHalbjahr1.isSelected()) {
                 tempHalbjahrNummer = 0;
@@ -1615,7 +1640,27 @@ public class GUI extends javax.swing.JFrame {
             }
             tempHalbjahr.addFach(tempFach);
         }
+        jTextArea1.setText("");
+        for (int i=0; i<4; i++)
+        {
+            anzahlZeugnis += planer.getHalbjahr(i).getAnzahlFach();
+            for(int j=0; j<planer.getHalbjahr(i).getAnzahlFach(); j++)
+            {
+                if(planer.getHalbjahr(i).getFach(j).getZeugnisnote()<5 && planer.getHalbjahr(i).getFach(j).getZeugnisnote() > -1)
+                {
+                    jTextArea1.append("Fach: " + planer.getHalbjahr(i).getFach(j).getName()+ "\n");
+                    jTextArea1.append("Halbjahr: " + Integer.toString(i+1) + "\n");
+                    jTextArea1.append(Integer.toString(planer.getHalbjahr(i).getFach(j).getZeugnisnote()) + " Punkt(e) \n");
+                    jTextArea1.append("\n");
+                }
+            }
+        }
+        if(anzahlZeugnis != 0)
+        {
+            txfDurchschnitt.setText(Double.toString((double)planer.rechneGesamtPunkte()/anzahlZeugnis));
+        }
         txfErziehlt.setText(Integer.toString(planer.rechneGesamtPunkte()));
+        txfMoeglich.setText(Integer.toString(anzahlZeugnis*15));
         jTextField1.setText(Integer.toString(300-planer.rechneGesamtPunkte()));
         refreshAll();
     }//GEN-LAST:event_btnHinzufuegenFachActionPerformed
@@ -1658,6 +1703,8 @@ public class GUI extends javax.swing.JFrame {
 
         tempName = txfFach.getText();
         tempLehrer = txfLehrer.getText();
+        
+        int anzahlZeugnis = 0;
 
         if (rdbtnJ1.isSelected()) {
             if (rdbtnHalbjahr1.isSelected()) {
@@ -1702,7 +1749,27 @@ public class GUI extends javax.swing.JFrame {
             }
             //tempHalbjahr.addFach(tempFach);
         }
+        jTextArea1.setText("");
+        for (int i=0; i<4; i++)
+        {
+            anzahlZeugnis += planer.getHalbjahr(i).getAnzahlFach();
+            for(int j=0; j<planer.getHalbjahr(i).getAnzahlFach(); j++)
+            {
+                if(planer.getHalbjahr(i).getFach(j).getZeugnisnote()<5 && planer.getHalbjahr(i).getFach(j).getZeugnisnote() > -1)
+                {
+                    jTextArea1.append("Fach: " + planer.getHalbjahr(i).getFach(j).getName()+ "\n");
+                    jTextArea1.append("Halbjahr: " + Integer.toString(i+1) + "\n");
+                    jTextArea1.append(Integer.toString(planer.getHalbjahr(i).getFach(j).getZeugnisnote()) + " Punkt(e) \n");
+                    jTextArea1.append("\n");
+                }
+            }
+        }
+        if(anzahlZeugnis != 0)
+        {
+            txfDurchschnitt.setText(Double.toString((double)planer.rechneGesamtPunkte()/anzahlZeugnis));
+        }
         txfErziehlt.setText(Integer.toString(planer.rechneGesamtPunkte()));
+        txfMoeglich.setText(Integer.toString(anzahlZeugnis*15));
         jTextField1.setText(Integer.toString(300-planer.rechneGesamtPunkte()));
         refreshAll();
     }//GEN-LAST:event_btnBearbeitenFachActionPerformed
