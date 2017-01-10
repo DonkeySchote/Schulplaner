@@ -64,14 +64,9 @@ public class Fach implements Serializable{
     
     public ArrayList<Integer> getStunden()
     {
-        if (stunden.isEmpty())
-        {
-            throw new ArrayIndexOutOfBoundsException("Dieses Fach hat noch keine Stunden");
-        }
-        else
-        {
+        
             return stunden;
-        }
+        
     }
     
     public String getUnterrichtszeiten(){
@@ -119,17 +114,17 @@ public class Fach implements Serializable{
         if(!mittwoch.isEmpty()){
             if(!woche.isEmpty())
                 woche += ";";
-            woche += "Di: " + dienstag;
+            woche += "Mi: " + dienstag;
         }
         if(!donnerstag.isEmpty()){
             if(!woche.isEmpty())
                 woche += ";";
-            woche += "Di: " + dienstag;
+            woche += "Do: " + dienstag;
         }
         if(!freitag.isEmpty()){
             if(!woche.isEmpty())
                 woche += ";";
-            woche += "Di: " + dienstag;
+            woche += "Fr: " + dienstag;
         }
         return woche;
     }

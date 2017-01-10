@@ -67,21 +67,33 @@ public class GUI extends javax.swing.JFrame {
     }
 
     public void terminFaecherFuellen() {
+        Halbjahr halbjahr;
         cbFach.removeAllItems();
-        cBoxFachNote.removeAllItems();
-        cBoxFachSp.removeAllItems();
         if (cbHalbjahre.getSelectedIndex() < 4) {
-            Halbjahr halbjahr = planer.getHalbjahr(cbHalbjahre.getSelectedIndex());
+            halbjahr = planer.getHalbjahr(cbHalbjahre.getSelectedIndex());
             for (int i = 0; i < halbjahr.getAnzahlFach(); i++) {
-                cBoxFachNote.addItem(halbjahr.getFach(i));
-                cBoxFachSp.addItem(halbjahr.getFach(i));
                 cbFach.addItem(halbjahr.getFach(i));
             }
         }
+        cBoxFachNote.removeAllItems();
+        halbjahr = planer.getHalbjahr(cBoxHalbjahr.getSelectedIndex());
+            for (int i = 0; i < halbjahr.getAnzahlFach(); i++) {
+                cBoxFachNote.addItem(halbjahr.getFach(i));
+            }
+        cBoxFachSp.removeAllItems();
+        halbjahr = planer.getHalbjahr(cBoxHalbjahrSp.getSelectedIndex());
+            for (int i = 0; i < halbjahr.getAnzahlFach(); i++) {
+                cBoxFachSp.addItem(halbjahr.getFach(i));
+            }
+        
     }
     
     public void tabelleFuellen() {
-        
+        for (int i = 1; i < 6; i++) {
+            for (int j = 0; j < 12; j++) {
+                tableStundenplan.setValueAt("", j, i);
+            }
+        }
         Halbjahr halbjahr = planer.getHalbjahr(cBoxHalbjahrSp.getSelectedIndex());
         for (int i = 0; i < halbjahr.getAnzahlFach(); i++) {
             Fach fach = halbjahr.getFach(i);
@@ -1887,11 +1899,13 @@ public class GUI extends javax.swing.JFrame {
             }
         }
         
+        
 
        refreshAll();
     }//GEN-LAST:event_btnStundeLoeschenActionPerformed
 
     private void cBoxHalbjahrSpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBoxHalbjahrSpActionPerformed
+        terminFaecherFuellen();
         tabelleFuellen();
     }//GEN-LAST:event_cBoxHalbjahrSpActionPerformed
 
