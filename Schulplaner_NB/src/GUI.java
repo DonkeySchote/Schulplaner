@@ -375,7 +375,6 @@ public class GUI extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         cBoxFachNote = new javax.swing.JComboBox();
-        spinnerHalbjahr = new javax.swing.JSpinner();
         txfKlausur = new javax.swing.JTextField();
         txfZeugnis = new javax.swing.JTextField();
         btnSucheFach = new javax.swing.JButton();
@@ -390,6 +389,7 @@ public class GUI extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        cBoxHalbjahr = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1227,7 +1227,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblFachKlausurJ12)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ12)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout notenj12PanelLayout = new javax.swing.GroupLayout(notenj12Panel);
@@ -1284,7 +1284,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblKlausurNoteJ21)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ21)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout notenj21PanelLayout = new javax.swing.GroupLayout(notenj21Panel);
@@ -1340,7 +1340,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(lblKlausurNoteJ22)
                 .addGap(18, 18, 18)
                 .addComponent(lblZeugnisNoteJ22)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout notenj22PanelLayout = new javax.swing.GroupLayout(notenj22Panel);
@@ -1367,8 +1367,6 @@ public class GUI extends javax.swing.JFrame {
         jLabel6.setText("Klausurnoten:");
 
         jLabel7.setText("Zeugnisnote:");
-
-        spinnerHalbjahr.setModel(new javax.swing.SpinnerNumberModel(1, 1, 4, 1));
 
         txfKlausur.setEditable(false);
 
@@ -1410,6 +1408,8 @@ public class GUI extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane3.setViewportView(jTextArea1);
 
+        cBoxHalbjahr.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
+
         javax.swing.GroupLayout paneNotenuebersichtLayout = new javax.swing.GroupLayout(paneNotenuebersicht);
         paneNotenuebersicht.setLayout(paneNotenuebersichtLayout);
         paneNotenuebersichtLayout.setHorizontalGroup(
@@ -1428,7 +1428,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(jLabel10)
                             .addComponent(jLabel14))
-                        .addGap(2, 77, Short.MAX_VALUE)
+                        .addGap(2, 152, Short.MAX_VALUE)
                         .addGroup(paneNotenuebersichtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jTextField1)
                             .addComponent(txfZeugnis, javax.swing.GroupLayout.Alignment.LEADING)
@@ -1436,9 +1436,9 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(txfErziehlt)
                             .addComponent(txfDurchschnitt)
                             .addComponent(txfKlausur, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(spinnerHalbjahr, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cBoxFachNote, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSucheFach, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnSucheFach, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cBoxHalbjahr, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(78, 78, 78))
                     .addGroup(paneNotenuebersichtLayout.createSequentialGroup()
                         .addGroup(paneNotenuebersichtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1461,7 +1461,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(paneNotenuebersichtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(spinnerHalbjahr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cBoxHalbjahr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(paneNotenuebersichtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -1488,12 +1488,12 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(paneNotenuebersichtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
                 .addGroup(paneNotenuebersichtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45))
-            .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jTabbedPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Notenübersicht", paneNotenuebersicht);
@@ -1704,15 +1704,15 @@ public class GUI extends javax.swing.JFrame {
 
     private void btnSucheFachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSucheFachActionPerformed
         String fachname = "";
-        if(planer.getHalbjahr((Integer)spinnerHalbjahr.getValue()).getFachByName(fachname).getZeugnisnote() != -1)
+        if(planer.getHalbjahr(cBoxHalbjahr.getSelectedIndex()).getFachByName(fachname).getZeugnisnote() != -1)
         {
-            txfZeugnis.setText(Integer.toString(planer.getHalbjahr((Integer)spinnerHalbjahr.getValue()).getFachByName(fachname).getZeugnisnote()));
+            txfZeugnis.setText(Integer.toString(planer.getHalbjahr(cBoxHalbjahr.getSelectedIndex()).getFachByName(fachname).getZeugnisnote()));
         }
         
         String klausuren = "";
         {
-            for (int i = 0; i < planer.getHalbjahr((Integer)spinnerHalbjahr.getValue()).getFachByName(fachname).getAnzahlKlausur(); i++) {
-                klausuren = klausuren + "; " + Integer.toString(planer.getHalbjahr((Integer)spinnerHalbjahr.getValue()).getFachByName(fachname).getKlausur(i).getNote());
+            for (int i = 0; i < planer.getHalbjahr(cBoxHalbjahr.getSelectedIndex()).getFachByName(fachname).getAnzahlKlausur(); i++) {
+                klausuren = klausuren + "; " + Integer.toString(planer.getHalbjahr(cBoxHalbjahr.getSelectedIndex()).getFachByName(fachname).getKlausur(i).getNote());
             }
         }
         txfKlausur.setText(klausuren);
@@ -1790,6 +1790,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.ButtonGroup btngrpJahrgang;
     private javax.swing.JComboBox cBoxFachNote;
     private javax.swing.JComboBox cBoxFachSp;
+    private javax.swing.JComboBox<String> cBoxHalbjahr;
     private javax.swing.JComboBox cBoxTag;
     private javax.swing.JComboBox cbFach;
     private javax.swing.JComboBox<String> cbHalbjahre;
@@ -1899,7 +1900,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane scrollPaneJ2_1;
     private javax.swing.JScrollPane scrollPaneJ2_2;
     private javax.swing.JSpinner spinnerDatum;
-    private javax.swing.JSpinner spinnerHalbjahr;
     private javax.swing.JSpinner spinnerStunde;
     private javax.swing.JTable tableStundenplan;
     private javax.swing.JTextArea txaNotiz;
