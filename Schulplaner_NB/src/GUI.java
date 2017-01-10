@@ -223,6 +223,7 @@ public class GUI extends javax.swing.JFrame {
                 panel.setLehrer(fach.getLehrer());
                 panel.setUnterrichtszeiten(fach.getUnterrichtszeiten());
                 panel.setNoteKA(fach.getKlausurnoten());
+                panel.setNoteZeugnis(String.valueOf(fach.getZeugnisnote()));
                 panel.setRaum(fach.getRaum());
                 panel.setKlammerbar(fach.getKlammerbar());
                 panels.add(panel);
