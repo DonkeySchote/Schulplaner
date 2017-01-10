@@ -66,9 +66,13 @@ public class GUI extends javax.swing.JFrame {
 
     public void terminFaecherFuellen() {
         cbFach.removeAllItems();
+        cBoxFachNote.removeAllItems();
+        cBoxFachSp.removeAllItems();
         if (cbHalbjahre.getSelectedIndex() < 4) {
             Halbjahr halbjahr = planer.getHalbjahr(cbHalbjahre.getSelectedIndex());
             for (int i = 0; i < halbjahr.getAnzahlFach(); i++) {
+                cBoxFachNote.addItem(halbjahr.getFach(i));
+                cBoxFachSp.addItem(halbjahr.getFach(i));
                 cbFach.addItem(halbjahr.getFach(i));
             }
         }
@@ -452,7 +456,7 @@ public class GUI extends javax.swing.JFrame {
         paneStundenplan.setLayout(paneStundenplanLayout);
         paneStundenplanLayout.setHorizontalGroup(
             paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 916, Short.MAX_VALUE)
             .addGroup(paneStundenplanLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(paneStundenplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -923,7 +927,7 @@ public class GUI extends javax.swing.JFrame {
                                                 .addComponent(txfRaum)))))
                                 .addComponent(btnHinzufuegenFach))
                             .addGap(24, 24, 24))))
-                .addGap(0, 172, Short.MAX_VALUE))
+                .addGap(0, 223, Short.MAX_VALUE))
         );
         paneFachLayout.setVerticalGroup(
             paneFachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1109,7 +1113,7 @@ public class GUI extends javax.swing.JFrame {
                                     .addComponent(txfNote, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(notizScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cbHalbjahre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 152, Short.MAX_VALUE))))
+                                .addGap(0, 203, Short.MAX_VALUE))))
                     .addGroup(paneTermineLayout.createSequentialGroup()
                         .addGroup(paneTermineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(paneTermineLayout.createSequentialGroup()
@@ -1431,7 +1435,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(jLabel10)
                             .addComponent(jLabel14))
-                        .addGap(2, 152, Short.MAX_VALUE)
+                        .addGap(2, 128, Short.MAX_VALUE)
                         .addGroup(paneNotenuebersichtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jTextField1)
                             .addComponent(txfZeugnis, javax.swing.GroupLayout.Alignment.LEADING)
@@ -1505,7 +1509,10 @@ public class GUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 936, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
